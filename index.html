@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
- <meta name="ppck-ver" content="a6df2affbe4cfd1aba58fad1e6a8b724" />
- 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#07111f">
- 
-<title>VoltMaster tv — Academia de Electricidade Automóvel</title>
+<title>VoltMaster Pro — Academia de Electricidade Automóvel</title>
 <style>
 :root{--bg:#07111f;--panel:#101d30;--panel2:#15253b;--text:#edf4ff;--muted:#a9bad2;--line:#2b3d56;--accent:#42d6a4;--accent2:#54a7ff;--danger:#ff6b75;--warn:#ffd166;--shadow:0 12px 35px #0003}
 *{box-sizing:border-box}
@@ -27,7 +24,7 @@ button:disabled{opacity:.42;cursor:not-allowed;transform:none}
 .logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04111d;font-size:25px;font-weight:900}
 .brand h1{font-size:clamp(20px,3vw,28px);margin:0;line-height:1.1}
 .brand p{margin:4px 0 0;color:var(--muted);font-size:12px}
-.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px}
 .sidebar,.panel,.card{background:linear-gradient(160deg,#122138,#0d192a);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
 .sidebar{padding:16px;height:max-content;position:sticky;top:10px}
@@ -58,14 +55,8 @@ button:disabled{opacity:.42;cursor:not-allowed;transform:none}
 .card{padding:17px;box-shadow:none}
 .card h3{margin:0 0 6px}
 .card p{margin:6px 0;color:var(--muted)}
-.levelcard{position:relative;overflow:hidden}
-.levelcard.locked{opacity:.6}
-.levelhead{display:flex;justify-content:space-between;gap:10px;align-items:start}
 .pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:11px;color:var(--muted)}
 .pill.ok{color:var(--accent);border-color:#26765e}
-.pill.lock{color:var(--warn)}
-.meter{height:7px;border-radius:99px;background:#26374c;overflow:hidden;margin:12px 0}
-.meter i{height:100%;display:block;background:var(--accent);width:0}
 .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .between{justify-content:space-between}
 .lessonlist{display:grid;gap:8px}
@@ -76,144 +67,129 @@ button:disabled{opacity:.42;cursor:not-allowed;transform:none}
 .lessonrow .detail small{color:var(--muted)}
 .lessonrow.done .num{background:#18523f;color:#c9ffeb}
 .lessonrow.locked{opacity:.55}
-.lessonrow button{flex-shrink:0}
 .lessonbody{padding:20px}
-.lessonbody h2{margin:0}
-.lessonbody h3{margin:22px 0 7px;color:#9fead0}
-.lessonbody p,.lessonbody li{color:#d3e0f1}
-.lessonbody .callout{border-left:3px solid var(--accent);background:#0b1a2b;padding:12px 15px;border-radius:0 10px 10px 0;margin:12px 0}
-.diagram{background:#071522;border:1px solid #2b4960;border-radius:14px;padding:16px;overflow:auto}
-.diagram pre{font:13px/1.5 ui-monospace,Consolas,monospace;color:#a8f3d5;margin:0;white-space:pre}
 .tabs{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
 .tab{background:#0b1728}
 .tab.active{background:#1d4764;border-color:#54a7ff}
-.question{border:1px solid var(--line);background:#0b1728;border-radius:13px;padding:15px;margin:12px 0}
-.question legend{font-weight:700;padding:0 4px}
-.option{display:flex;gap:9px;align-items:flex-start;padding:9px;border-radius:9px;margin-top:6px;background:#122238;cursor:pointer}
-.option input{margin-top:5px;accent-color:var(--accent)}
 .feedback{padding:13px;border-radius:11px;margin:12px 0}
 .feedback.good{background:#10372e;border:1px solid #26765e}
-.feedback.bad{background:#3a2029;border:1px solid #7a3442}
+.feedback.bad{background:#3a2029;border:1px solid #7a3442;color:#ffdce0}
 .field{display:grid;gap:5px;margin:10px 0}
 .field label{color:var(--muted);font-size:13px}
 .field select,.field input{width:100%;padding:10px;border-radius:10px;background:#091626;color:var(--text);border:1px solid var(--line)}
-.meterface{background:#060e18;border:2px solid #41546a;border-radius:16px;padding:15px;text-align:center}
-.meterdisplay{font:700 28px ui-monospace,monospace;color:#79ffbb;background:#11231e;padding:12px;border-radius:8px;margin:8px 0}
-.meter-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.pointbtn{min-width:0}
-.pointbtn.selected{outline:2px solid var(--accent);background:#164638}
-.circuit-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:14px}
-.svgwrap{background:#071522;border:1px solid var(--line);border-radius:14px;padding:10px}
-.svgwrap svg{width:100%;height:auto;display:block}
-.testpoint{cursor:pointer}
-.testpoint circle{fill:#ffd166;stroke:#fff;stroke-width:2}
-.testpoint text{fill:#fff;font-size:12px;font-weight:bold}
-.testpoint.active circle{fill:#42d6a4;stroke:#fff}
-.caseitem{padding:14px;background:#0b1728;border:1px solid var(--line);border-radius:12px;margin:9px 0}
-.caseitem h4{margin:0 0 4px}
-.caseitem p{margin:4px 0;color:var(--muted)}
+.auth-box{max-width:420px;margin:40px auto;padding:25px;background:var(--panel);border:1px solid var(--line);border-radius:20px}
+.auth-box h2{margin-top:0;text-align:center}
 .footer{text-align:center;color:#8093ac;font-size:12px;padding:25px 0}
+.hidden{display:none!important}
 .notice{padding:12px 14px;background:#302a16;border:1px solid #695d2d;border-radius:12px;color:#ffe8a3;margin:12px 0}
 .success{color:var(--accent)}
-.hidden{display:none!important}
-.badgeicon{font-size:26px}
-.search{max-width:300px;width:100%;padding:10px 12px;border:1px solid var(--line);background:#091626;color:var(--text);border-radius:10px}
 @media(max-width:950px){
 .layout{grid-template-columns:1fr}
 .sidebar{position:static}
 .navgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}
-.navtitle{margin-top:15px}
-.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
-.circuit-grid{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-.app{padding:10px}
-.sidebar{padding:11px}
-.navgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.stats{gap:8px}
-.stat{padding:12px}
-.stat b{font-size:21px}
-.grid2,.grid3{grid-template-columns:1fr}
-.hero{padding:18px}
-.hero:after{font-size:60px;right:12px}
-.lessonbody{padding:14px}
-.lessonrow{align-items:flex-start;flex-wrap:wrap}
-.lessonrow .detail{min-width:60%}
-.lessonrow button{margin-left:41px}
-.meter-controls{grid-template-columns:1fr 1fr}
-.top-actions button{padding:8px 10px}
-}
-@media print{
-body{background:white;color:#111}
-.topbar,.sidebar,.top-actions,.no-print{display:none!important}
-.layout{display:block}
-.panel,.card{background:white;color:#111;border:1px solid #aaa;box-shadow:none}
-.muted,.card p{color:#333}
-.view{display:none!important}
-#certificateView{display:block!important}
 }
 </style>
 </head>
 <body>
-<div class="app">
+
+<!-- ECRÃ DE AUTENTICAÇÃO (LOGIN / REGISTO COM USER E SENHA) -->
+<div id="authView" class="app" style="display:block">
+ <div class="auth-box">
+  <div class="brand" style="justify-content:center;margin-bottom:15px">
+   <div class="logo">⚡</div>
+   <div><h1>VoltMaster Pro</h1><p class="tiny muted">Portal Académico</p></div>
+  </div>
+  
+  <div id="inviteBanner" class="notice hidden" style="margin-bottom:12px">Estás a registar-te através de um convite de amigo!</div>
+
+  <div class="tabs" style="justify-content:center">
+   <button id="tabLogin" class="primary small" onclick="switchAuthTab('login')">Entrar</button>
+   <button id="tabSignup" class="secondary small" onclick="switchAuthTab('signup')">Criar Conta</button>
+  </div>
+
+  <div id="authFormFeedback" class="feedback bad hidden"></div>
+
+  <!-- Formulário de Login -->
+  <div id="loginForm">
+   <div class="field">
+    <label for="loginUser">Nome de Utilizador</label>
+    <input id="loginUser" type="text" placeholder="O teu utilizador">
+   </div>
+   <div class="field">
+    <label for="loginPass">Palavra-passe (Senha)</label>
+    <input id="loginPass" type="password" placeholder="••••••••">
+   </div>
+   <button class="primary" style="width:100%;margin-top:10px" onclick="handleLogin()">Entrar na Plataforma</button>
+  </div>
+
+  <!-- Formulário de Registo (Sign up) -->
+  <div id="signupForm" class="hidden">
+   <div class="field">
+    <label for="signupUser">Nome de Utilizador</label>
+    <input id="signupUser" type="text" placeholder="Escolhe um utilizador">
+   </div>
+   <div class="field">
+    <label for="signupPass">Palavra-passe (Senha)</label>
+    <input id="signupPass" type="password" placeholder="••••••••">
+   </div>
+   <button class="primary" style="width:100%;margin-top:10px" onclick="handleSignup()">Registar e Entrar</button>
+  </div>
+ </div>
+</div>
+
+<!-- APLICAÇÃO PRINCIPAL -->
+<div id="mainAppView" class="app hidden">
 <header class="topbar">
  <div class="brand"><div class="logo">⚡</div><div><h1>VoltMaster Pro</h1><p>Academia Profissional de Electricidade Automóvel</p></div></div>
- <div class="top-actions"><button id="themeBtn" class="small" onclick="toggleTheme()">◐ Tema</button><button class="small" onclick="exportProgress()">⇩ Exportar progresso</button><button class="small danger" onclick="resetProgress()">↻ Reiniciar</button></div>
+ <div class="top-actions">
+  <span id="currentUserBadge" class="pill ok"></span>
+  <button class="small secondary" onclick="handleLogout()">Terminar Sessão</button>
+  <button class="small danger" onclick="resetProgress()">↻ Limpar Progresso</button>
+ </div>
 </header>
+
 <div class="layout">
 <aside class="sidebar">
  <div class="navtitle">Área de formação</div>
  <div class="navgrid">
   <button class="navbtn active" data-view="dashboard" onclick="showView('dashboard')"><span>⌂</span> Painel</button>
   <button class="navbtn" data-view="course" onclick="showView('course')"><span>▤</span> Curso</button>
-  <button class="navbtn" data-view="lab" onclick="showView('lab')"><span>⌁</span> Laboratório</button>
-  <button class="navbtn" data-view="diagnosis" onclick="showView('diagnosis')"><span>⚙</span> Diagnóstico</button>
-  <button class="navbtn" data-view="review" onclick="showView('review')"><span>↺</span> Revisão</button>
+  <button class="navbtn" data-view="referral" onclick="showView('referral')"><span>🔗</span> Convites</button>
   <button class="navbtn" data-view="certificateView" onclick="showView('certificateView')"><span>♜</span> Certificado</button>
  </div>
- <div class="progressbox"><div class="row between"><b>Progresso geral</b><b id="sidePercent">0%</b></div><div class="progressline"><i id="sideBar"></i></div><div class="tiny muted" id="sideCounts">0 de 300 aulas concluídas</div><hr style="border:0;border-top:1px solid var(--line);margin:13px 0"><div class="row between"><span class="tiny muted">Testes aprovados</span><b id="sideTests">0/30</b></div></div>
- <p class="tiny muted" style="margin:14px 6px 3px">O progresso fica guardado neste navegador/dispositivo. Não há sincronização automática online.</p>
-</aside><main class="content">
+ <div class="progressbox">
+  <div class="row between"><b>Progresso geral</b><b id="sidePercent">0%</b></div>
+  <div class="progressline"><i id="sideBar"></i></div>
+  <div class="tiny muted" id="sideCounts">0 de aulas concluídas</div>
+ </div>
+</aside>
 
+<main class="content">
 <section id="dashboard" class="view active">
  <div class="hero">
   <h2>Domina a Electricidade Automóvel ⚡</h2>
-  <p>Aprende desde os fundamentos até ao diagnóstico avançado. Estuda, pratica, testa os teus conhecimentos e acompanha o teu progresso.</p>
+  <p>O teu progresso é guardado na tua conta. A cada 5 aulas concluídas, convida amigos para continuares a avançar sem limites!</p>
   <div class="row" style="margin-top:16px">
    <button class="primary" onclick="showView('course')">Começar a estudar →</button>
-   <button class="secondary" onclick="showView('lab')">Abrir laboratório</button>
+   <button class="secondary" onclick="showView('referral')">Partilhar Link de Convite</button>
   </div>
  </div>
  <div class="stats">
-  <div class="stat"><b id="statLessons">0/300</b><span>Aulas concluídas</span></div>
-  <div class="stat"><b id="statTests">0/30</b><span>Testes aprovados</span></div>
+  <div class="stat"><b id="statLessons">0</b><span>Aulas concluídas</span></div>
+  <div class="stat"><b id="statInvites">0</b><span>Amigos convidados</span></div>
   <div class="stat"><b id="statScore">0%</b><span>Melhor resultado</span></div>
-  <div class="stat"><b id="statCases">0/8</b><span>Casos resolvidos</span></div>
  </div>
- <div class="sectionhead"><h2>Os 10 níveis da formação</h2><span class="muted tiny">30 aulas por nível</span></div>
+ <div class="sectionhead"><h2>Níveis de Formação</h2></div>
  <div id="levelCards" class="grid2"></div>
- <div class="sectionhead"><h2>Continuar a aprendizagem</h2></div>
- <div class="card">
-  <div class="row between">
-   <div><h3 id="continueTitle">Primeiros passos</h3><p id="continueText">Começa pelo primeiro nível e aprende os fundamentos.</p></div>
-   <button class="primary" onclick="continueLearning()">Continuar →</button>
-  </div>
- </div>
 </section>
 
 <section id="course" class="view">
  <div class="panel" style="padding:18px">
   <div class="sectionhead" style="margin-top:0">
-   <div>
-    <h2>Biblioteca do curso</h2>
-    <p class="muted">Escolhe um nível, módulo ou aula. Os módulos seguintes abrem após aprovação.</p>
-   </div>
-   <input class="search" id="lessonSearch" placeholder="Pesquisar aula ou tema..." oninput="renderCourse()">
+   <div><h2>Biblioteca do curso</h2><p class="muted">Escolhe uma aula para estudar.</p></div>
   </div>
+  <div id="inviteWarningBox" class="notice hidden"></div>
   <div id="courseLevelTabs" class="tabs"></div>
-  <div id="courseModuleTabs" class="tabs"></div>
-  <div id="courseSummary"></div>
   <div id="lessonList" class="lessonlist"></div>
  </div>
 </section>
@@ -222,2804 +198,361 @@ body{background:white;color:#111}
  <div id="lessonContent" class="panel lessonbody"></div>
 </section>
 
-<section id="test" class="view">
- <div id="testContent" class="panel" style="padding:20px"></div>
-</section>
-
-<section id="lab" class="view">
- <div class="hero">
-  <h2>Laboratório virtual de circuitos</h2>
-  <p>Escolhe o modo do multímetro, selecciona pontos de medição e compara a leitura com os valores esperados. Os circuitos são modelos didácticos simplificados e não substituem os diagramas do fabricante.</p>
- </div>
-
- <div class="circuit-grid">
-  <div class="svgwrap">
-   <div class="row between">
-    <h3 style="margin:5px">Circuito de alimentação didáctico</h3>
-    <span class="pill" id="faultPill">Avaria aleatória</span>
-   </div>
-
-   <svg viewBox="0 0 680 310" role="img" aria-label="Diagrama de bateria, fusível, relé e carga">
-    <g stroke="#6a829c" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M85 80 H190 M255 80 H335 M405 80 H535 V135 M535 195 V240 H85 V160"/>
-     <path d="M85 160 V145 M65 145 H105 M72 158 H98 M85 160 V240"/>
-     <path d="M535 135 L520 165 H550 Z" fill="#1c3950"/>
-     <path d="M190 80 H205 L215 65 L230 95 L240 65 L250 95 L260 80"/>
-     <path d="M335 80 H350 M350 80 L390 50 M390 50 H405"/>
-     <path d="M375 80 V125 H430 V150 M430 180 V240"/>
-    </g>
-    <g fill="#dbeaff" font-size="15" font-weight="700">
-     <text x="48" y="48">Bateria 12 V</text>
-     <text x="194" y="45">Fusível</text>
-     <text x="333" y="32">Relé</text>
-     <text x="557" y="170">Carga</text>
-     <text x="270" y="278">Massa / retorno</text>
-    </g>
-    <g class="testpoint" data-point="BAT+" onclick="selectPoint('BAT+')">
-     <circle cx="85" cy="80" r="10"/><text x="53" y="105">P1 +</text>
-    </g>
-    <g class="testpoint" data-point="FUSE_IN" onclick="selectPoint('FUSE_IN')">
-     <circle cx="190" cy="80" r="10"/><text x="162" y="113">P2</text>
-    </g>
-    <g class="testpoint" data-point="FUSE_OUT" onclick="selectPoint('FUSE_OUT')">
-     <circle cx="270" cy="80" r="10"/><text x="245" y="113">P3</text>
-    </g>
-    <g class="testpoint" data-point="LOAD+" onclick="selectPoint('LOAD+')">
-     <circle cx="535" cy="135" r="10"/><text x="548" y="126">P4</text>
-    </g>
-    <g class="testpoint" data-point="GND" onclick="selectPoint('GND')">
-     <circle cx="535" cy="240" r="10"/><text x="548" y="248">P5</text>
-    </g>
-    <g class="testpoint" data-point="BAT-" onclick="selectPoint('BAT-')">
-     <circle cx="85" cy="240" r="10"/><text x="45" y="266">P6 −</text>
-    </g>
-   </svg>
-
-   <p class="muted tiny">Selecciona um ponto do diagrama ou usa os botões. Para medir tensão, escolhe dois pontos. Para resistência ou continuidade, o circuito real deve estar desligado.</p>
-
-   <div class="meter-controls">
-    <button class="pointbtn" onclick="selectPoint('BAT+')">P1 · Bateria +</button>
-    <button class="pointbtn" onclick="selectPoint('FUSE_IN')">P2 · Entrada fusível</button>
-    <button class="pointbtn" onclick="selectPoint('FUSE_OUT')">P3 · Saída fusível</button>
-    <button class="pointbtn" onclick="selectPoint('LOAD+')">P4 · Positivo carga</button>
-    <button class="pointbtn" onclick="selectPoint('GND')">P5 · Massa</button>
-    <button class="pointbtn" onclick="selectPoint('BAT-')">P6 · Bateria −</button>
-   </div>
-  </div>
-
-  <div class="card">
-   <h3>Multímetro virtual</h3>
-   <div class="meterface">
-    <div class="tiny muted">LEITURA SIMULADA</div>
-    <div class="meterdisplay" id="meterReading">12.6 V</div>
-    <div class="tiny" id="meterCaption">Ponta vermelha: P1 + · preta: P6 −</div>
-   </div>
-
-   <div class="field">
-    <label for="meterMode">Modo</label>
-    <select id="meterMode" onchange="updateMeter()">
-     <option value="voltage">Tensão contínua (V DC)</option>
-     <option value="resistance">Resistência (Ω)</option>
-     <option value="continuity">Continuidade (bip)</option>
-    </select>
-   </div>
-
-   <div class="field">
-    <label for="redPoint">Ponta vermelha</label>
-    <select id="redPoint" onchange="syncPoints()">
-     <option value="BAT+">P1 — Bateria +</option>
-     <option value="FUSE_IN">P2 — Entrada fusível</option>
-     <option value="FUSE_OUT">P3 — Saída fusível</option>
-     <option value="LOAD+">P4 — Positivo da carga</option>
-     <option value="GND">P5 — Massa</option>
-     <option value="BAT-">P6 — Bateria −</option>
-    </select>
-   </div>
-
-   <div class="field">
-    <label for="blackPoint">Ponta preta</label>
-    <select id="blackPoint" onchange="updateMeter()">
-     <option value="BAT-">P6 — Bateria −</option>
-     <option value="GND">P5 — Massa</option>
-     <option value="BAT+">P1 — Bateria +</option>
-     <option value="FUSE_IN">P2 — Entrada fusível</option>
-     <option value="FUSE_OUT">P3 — Saída fusível</option>
-     <option value="LOAD+">P4 — Positivo da carga</option>
-    </select>
-   </div>
-
-   <div class="field">
-    <label for="faultSelect">Avaria injectada</label>
-    <select id="faultSelect" onchange="setFault(this.value)">
-     <option value="none">Sem avaria</option>
-     <option value="fuse">Fusível aberto</option>
-     <option value="ground">Massa deficiente</option>
-     <option value="battery">Bateria fraca (11,2 V)</option>
-     <option value="relay">Relé não fecha</option>
-     <option value="resistance">Resistência de contacto elevada</option>
-     <option value="short">Curto-circuito à massa</option>
-    </select>
-   </div>
-
-   <div class="row">
-    <button class="primary" onclick="updateMeter()">Medir</button>
-    <button onclick="meterHint()">Dica</button>
-    <button onclick="nextLabChallenge()">Novo desafio</button>
-   </div>
-   <div id="meterFeedback" class="feedback" style="margin-top:12px">Selecciona os pontos e efectua uma medição.</div>
-  </div>
- </div>
-
- <div class="sectionhead">
-  <h2>Missão prática</h2>
-  <span class="pill" id="labMissionState">Em curso</span>
- </div>
-
- <div class="card">
-  <h3 id="missionTitle">Encontra a avaria do circuito</h3>
-  <p id="missionText" class="muted">Usa pelo menos duas medições para identificar a falha e selecciona a reparação mais adequada.</p>
-
-  <div class="field">
-   <label for="diagnosisChoice">Diagnóstico</label>
-   <select id="diagnosisChoice">
-    <option value="">Escolhe uma hipótese...</option>
-    <option value="none">Circuito normal</option>
-    <option value="fuse">Fusível aberto</option>
-    <option value="ground">Massa deficiente</option>
-    <option value="battery">Bateria fraca</option>
-    <option value="relay">Relé defeituoso</option>
-    <option value="resistance">Contacto com resistência elevada</option>
-    <option value="short">Curto-circuito à massa</option>
-   </select>
-  </div>
-
-  <div class="field">
-   <label for="repairChoice">Acção recomendada</label>
-   <select id="repairChoice">
-    <option value="">Escolhe uma acção...</option>
-    <option value="inspect">Inspeccionar e testar o fusível</option>
-    <option value="clean">Limpar/apertar a ligação de massa e repetir teste de queda de tensão</option>
-    <option value="charge">Testar, carregar ou substituir a bateria conforme o resultado</option>
-    <option value="relay">Testar comando e contactos do relé</option>
-    <option value="contact">Limpar/reparar ligação e confirmar queda de tensão</option>
-    <option value="short">Desligar alimentação e localizar o curto antes de substituir fusível</option>
-    <option value="none">Nenhuma reparação; confirmar funcionamento</option>
-   </select>
-  </div>
-
-  <div class="row">
-   <button class="primary" onclick="submitLabDiagnosis()">Confirmar diagnóstico</button>
-   <button onclick="revealLabHint()">Mostrar dica</button>
-  </div>
-  <div id="labResult"></div>
- </div>
-</section>
-
-<section id="diagnosis" class="view">
- <div class="hero">
-  <h2>Oficina de diagnóstico</h2>
-  <p>Resolve casos simulados com sintomas, medições, hipóteses e decisões de reparação. Confirma a queixa, inspecciona, mede, compara com as especificações e verifica a reparação.</p>
- </div>
- <div id="caseList"></div>
-</section>
-
-<section id="review" class="view">
+<!-- VISTA DE CONVITES -->
+<section id="referral" class="view">
  <div class="panel" style="padding:20px">
-  <div class="sectionhead" style="margin-top:0">
-   <div>
-    <h2>Revisão personalizada</h2>
-    <p class="muted">Aulas recomendadas a partir de respostas erradas e temas a rever.</p>
+  <h2>Sistema de Convites por Link</h2>
+  <p class="muted">A cada 5 aulas concluídas, precisas de convidar utilizadores através do teu link pessoal para continuar o avanço nas aulas seguintes.</p>
+  
+  <div class="card" style="margin-top:15px">
+   <h3>O teu link de convite exclusivo</h3>
+   <p class="muted">Envia este link para amigos. Quando alguém abrir e criar conta, conta como um convite bem-sucedido!</p>
+   <div class="field">
+    <input id="inviteLinkInput" type="text" readonly style="font-weight:bold;color:var(--accent)">
+   </div>
+   <div class="row">
+    <button class="primary" onclick="copyInviteLink()">Copiar Link</button>
+    <span id="copyFeedback" class="tiny success hidden">✓ Link copiado para a área de transferência!</span>
    </div>
   </div>
-  <div id="reviewList"></div>
+
+  <div class="stats" style="margin-top:20px;grid-template-columns:repeat(2,minmax(0,1fr))">
+   <div class="stat"><b id="refCompletedCount">0</b><span>Aulas concluídas</span></div>
+   <div class="stat"><b id="refInvitesCount">0</b><span>Convites válidos obtidos</span></div>
+  </div>
  </div>
 </section>
 
 <section id="certificateView" class="view">
  <div class="panel" style="padding:25px;text-align:center">
-  <div class="badgeicon">🏅</div>
-  <h2>Certificado de conclusão</h2>
-  <p class="muted">Completa as 300 aulas, aprova os 30 testes com pelo menos 80% e resolve os 8 casos práticos para desbloquear o certificado.</p>
-
-  <div class="field" style="max-width:440px;margin:20px auto;text-align:left">
-   <label for="studentName">Nome do formando</label>
-   <input id="studentName" placeholder="Escreve o teu nome" oninput="saveStudentName()">
-  </div>
-
-  <div id="certificateStatus" class="feedback bad">Ainda não cumpriste todos os requisitos.</div>
-
-  <div id="certificatePaper" class="hidden" style="border:5px double #8d9caa;background:#f9fbff;color:#17283a;padding:35px;margin:20px auto;max-width:750px">
-   <div style="font-size:42px">⚡</div>
+  <h2>Certificado de Conclusão</h2>
+  <div id="certificateStatus" class="feedback bad">Completa as aulas para desbloquear.</div>
+  <div id="certificatePaper" class="hidden" style="border:5px double var(--accent);background:#f9fbff;color:#17283a;padding:35px;margin:20px auto;max-width:750px">
    <h1>Certificado de Conclusão</h1>
-   <p>Certifica-se que</p>
+   <p>Atribuído a</p>
    <h2 id="certName"></h2>
-   <p>concluiu os requisitos educativos da Academia VoltMaster Pro de Electricidade Automóvel.</p>
-   <p id="certDate"></p>
-   <p style="margin-top:35px">VoltMaster Pro · Formação técnica educativa</p>
+   <p>pelo aproveitamento na Academia VoltMaster Pro.</p>
   </div>
-
-  <div class="row" style="justify-content:center">
-   <button class="primary" onclick="printCertificate()">Imprimir / Guardar em PDF</button>
-   <button onclick="showView('dashboard')">Voltar ao painel</button>
-  </div>
-  <p class="tiny muted">Este certificado é educativo e não equivale a uma acreditação profissional oficial.</p>
+  <button class="primary" onclick="window.print()">Imprimir / Guardar PDF</button>
  </div>
 </section>
 
 </main>
 </div>
+</div>
 
-<div class="footer">VoltMaster Pro · Material didáctico · Confirma os valores com a documentação técnica do fabricante.</div>
-</div><script>
+<script>
 "use strict";
-
-/* =========================================
-   VOLTMASTER PRO — SISTEMA DO CURSO
-   ========================================= */
 
 const LEVELS = [
  {
   title:"Fundamentos da Electricidade Automóvel",
   icon:"⚡",
-  description:"Aprende tensão, corrente, resistência, potência, circuitos e segurança.",
   modules:[
    {title:"Grandezas eléctricas",topics:[
     "O que é a electricidade automóvel",
-    "Átomos, electrões e carga eléctrica",
     "Tensão eléctrica e diferença de potencial",
-    "Corrente eléctrica e sentido convencional",
+    "Corrente eléctrica",
     "Resistência eléctrica e Lei de Ohm",
-    "Potência e energia eléctrica",
-    "Corrente contínua e corrente alternada",
-    "Condutores, isoladores e semicondutores",
-    "Circuitos em série",
-    "Circuitos em paralelo"
-   ]},
-   {title:"Circuitos e medições",topics:[
+    "Circuitos em série e paralelo",
     "Circuitos mistos e resistência equivalente",
     "Lei de Ohm na oficina",
     "Leis de Kirchhoff",
     "Queda de tensão nos condutores",
-    "Curto-circuito e circuito aberto",
-    "Massa eléctrica no automóvel",
-    "Símbolos eléctricos automóveis",
-    "Diagramas e esquemas eléctricos",
-    "Unidades e conversões eléctricas",
-    "Exercícios de cálculo eléctrico"
-   ]},
-   {title:"Segurança e instrumentos",topics:[
-    "Riscos eléctricos na oficina",
-    "Equipamentos de protecção individual",
-    "Utilização correcta do multímetro",
-    "Medição de tensão contínua",
-    "Medição de resistência",
-    "Teste de continuidade",
-    "Pinça amperimétrica",
-    "Lâmpada de prova: aplicações e limites",
-    "Erros de medição e diagnóstico",
-    "Teste de avaliação do nível 1"
+    "Curto-circuito e circuito aberto"
    ]}
- ]
+  ]
  },
  {
   title:"Bateria e Sistema de Arranque",
   icon:"🔋",
-  description:"Conhece baterias, cabos, motor de arranque e circuitos de comando.",
   modules:[
-   {title:"Baterias automóveis",topics:[
-    "Função da bateria",
-    "Tipos de baterias automóveis",
+   {title:"Baterias",topics:[
+    "Função e tipos de baterias",
     "Estrutura interna da bateria de chumbo-ácido",
     "Capacidade em Ah e corrente de arranque",
     "Tensão em repouso e estado de carga",
-    "Inspecção visual da bateria",
-    "Terminais, cabos e ligações",
     "Teste de bateria com multímetro",
-    "Teste de bateria com equipamento próprio",
-    "Segurança ao manusear baterias"
-   ]},
-   {title:"Motor de arranque",topics:[
     "Função do motor de arranque",
-    "Componentes internos",
-    "Induzido, escovas e colector",
+    "Componentes internos do arranque",
     "Solenóide e contactos de potência",
-    "Bendix e engrenagem de accionamento",
     "Circuito eléctrico de arranque",
-    "Relé de arranque e comando",
-    "Teste de queda de tensão no arranque",
-    "Diagnóstico de arranque lento",
-    "Diagnóstico de motor que não roda"
-   ]},
-   {title:"Diagnóstico de arranque",topics:[
-    "Cliques ao tentar ligar o motor",
-    "Motor de arranque roda mas não engrena",
-    "Cabos aquecidos e maus contactos",
-    "Consumo excessivo de corrente",
-    "Interpretação dos sintomas",
-    "Teste do circuito de comando",
-    "Verificação de fusíveis e relés",
-    "Desmontagem segura do motor de arranque",
-    "Manutenção e substituição de componentes",
-    "Teste de avaliação do nível 2"
+    "Diagnóstico de arranque lento"
    ]}
- ]
- },
- {
-  title:"Alternador e Sistema de Carga",
-  icon:"🔄",
-  description:"Estuda produção de energia, regulação de tensão e diagnóstico de carga.",
-  modules:[
-   {title:"Funcionamento do alternador",topics:[
-    "Função do sistema de carga",
-    "Princípio da indução electromagnética",
-    "Componentes do alternador",
-    "Rotor e enrolamento de campo",
-    "Estator e produção de corrente",
-    "Rectificação por díodos",
-    "Regulador de tensão",
-    "Polia e transmissão por correia",
-    "Terminal B+, D+ e ligações comuns",
-    "Circuito de carga e lâmpada de aviso"
-   ]},
-   {title:"Testes do sistema de carga",topics:[
-    "Inspecção da correia",
-    "Medição da tensão da bateria",
-    "Verificação da tensão de carga",
-    "Teste de queda de tensão positiva",
-    "Teste de queda de tensão na massa",
-    "Carga com consumidores ligados",
-    "Ripple e ondulação de tensão",
-    "Diagnóstico de díodos defeituosos",
-    "Sobrecarga e subtensão",
-    "Interpretação de resultados"
-   ]},
-   {title:"Reparação e manutenção",topics:[
-    "Ruído mecânico do alternador",
-    "Correia frouxa ou danificada",
-    "Alternador que não carrega",
-    "Carga intermitente",
-    "Lâmpada de bateria acesa",
-    "Regulador defeituoso",
-    "Cabos e terminais de carga",
-    "Cuidados ao desligar a bateria",
-    "Substituição e confirmação da reparação",
-    "Teste de avaliação do nível 3"
-   ]}
- ]
- },
- {
-  title:"Iluminação e Sinalização",
-  icon:"💡",
-  description:"Aprende faróis, luzes de travão, indicadores e circuitos de iluminação.",
-  modules:[
-   {title:"Circuitos de iluminação",topics:[
-    "Princípios da iluminação automóvel",
-    "Lâmpadas incandescentes",
-    "Lâmpadas halogéneas",
-    "Tecnologia LED",
-    "Faróis dianteiros e médios",
-    "Máximos e sinalização luminosa",
-    "Luzes de presença e matrícula",
-    "Luzes de travão",
-    "Indicadores de direcção",
-    "Luzes de marcha-atrás e nevoeiro"
-   ]},
-   {title:"Comando e protecção",topics:[
-    "Interruptores de iluminação",
-    "Comutadores da coluna de direcção",
-    "Relés de iluminação",
-    "Fusíveis e dimensionamento",
-    "Circuitos de comando e potência",
-    "Regulação dos faróis",
-    "Luzes diurnas",
-    "Ligações de massa e conectores",
-    "Compatibilidade eléctrica das lâmpadas LED",
-    "Diagramas de iluminação"
-   ]},
-   {title:"Diagnóstico de iluminação",topics:[
-    "Farol que não acende",
-    "Lâmpadas que queimam repetidamente",
-    "Luz fraca ou intermitente",
-    "Indicadores que piscam rapidamente",
-    "Luzes de travão permanentemente acesas",
-    "Fusível que volta a fundir",
-    "Teste de continuidade de cablagem",
-    "Queda de tensão no circuito",
-    "Inspecção e regulação final",
-    "Teste de avaliação do nível 4"
-   ]}
- ]
- },
- {
-  title:"Ignição e Gestão do Motor",
-  icon:"⚙️",
-  description:"Conhece sensores, bobinas, actuadores e princípios da gestão electrónica.",
-  modules:[
-   {title:"Sistemas de ignição",topics:[
-    "Função do sistema de ignição",
-    "Ignição convencional e electrónica",
-    "Bobina de ignição",
-    "Velas de ignição",
-    "Cabos de alta tensão",
-    "Ignição directa e bobinas individuais",
-    "Módulo de ignição",
-    "Sincronização da ignição",
-    "Falhas de combustão",
-    "Cuidados com alta tensão"
-   ]},
-   {title:"Sensores e actuadores",topics:[
-    "Unidade de controlo do motor",
-    "Sensor de posição da cambota",
-    "Sensor de posição da árvore de cames",
-    "Sensor de temperatura do motor",
-    "Sensor de pressão MAP",
-    "Sensor de fluxo de ar MAF",
-    "Sensor de posição do acelerador",
-    "Sonda lambda",
-    "Injectores e actuadores",
-    "Alimentação, massa e sinal dos sensores"
-   ]},
-   {title:"Diagnóstico electrónico",topics:[
-    "Luz de avaria do motor",
-    "Leitura de códigos de diagnóstico",
-    "Dados em tempo real",
-    "Códigos presentes e históricos",
-    "Teste de alimentação de sensores",
-    "Verificação de sinais eléctricos",
-    "Falhas de ignição e sintomas",
-    "Interpretação sem trocar peças por tentativa",
-    "Verificação depois da reparação",
-    "Teste de avaliação do nível 5"
-   ]}
- ]
- },
- {
-  title:"Electrónica Automóvel",
-  icon:"🧩",
-  description:"Estuda componentes electrónicos, semicondutores e circuitos de controlo.",
-  modules:[
-   {title:"Componentes electrónicos",topics:[
-    "Diferenças entre electricidade e electrónica",
-    "Díodos e rectificação",
-    "Transístores",
-    "Resistências e redes resistivas",
-    "Condensadores",
-    "Bobinas e indutores",
-    "Díodos Zener",
-    "Relés electrónicos",
-    "Reguladores e conversores",
-    "Leitura de símbolos electrónicos"
-   ]},
-   {title:"Unidades de controlo",topics:[
-    "Arquitectura básica de uma ECU",
-    "Microcontroladores e processamento",
-    "Entradas analógicas e digitais",
-    "Saídas de controlo",
-    "Referência de 5 V",
-    "Circuitos de massa electrónica",
-    "Protecção contra sobretensão",
-    "Conectores e pinos",
-    "Redes de comunicação",
-    "Cuidados ao testar módulos electrónicos"
-   ]},
-   {title:"Diagnóstico electrónico",topics:[
-    "Teste de alimentação da ECU",
-    "Verificação de massas electrónicas",
-    "Sinais analógicos e digitais",
-    "Utilização básica do osciloscópio",
-    "Interferência e ruído eléctrico",
-    "Curto-circuitos em sensores",
-    "Circuitos de saída defeituosos",
-    "Protecção contra descarga electrostática",
-    "Diagnóstico sem danificar a unidade",
-    "Teste de avaliação do nível 6"
-   ]}
- ]
- },
- {
-  title:"Conforto, Acessórios e Segurança",
-  icon:"🚘",
-  description:"Aprende vidros eléctricos, fechos, limpa-vidros, alarmes e sistemas auxiliares.",
-  modules:[
-   {title:"Sistemas de conforto",topics:[
-    "Vidros eléctricos",
-    "Motores de vidros",
-    "Interruptores e comandos",
-    "Fecho centralizado",
-    "Actuadores das portas",
-    "Espelhos eléctricos",
-    "Limpa-vidros",
-    "Bomba do lava-vidros",
-    "Ventilador do habitáculo",
-    "Desembaciador do vidro traseiro"
-   ]},
-   {title:"Acessórios eléctricos",topics:[
-    "Tomadas de alimentação",
-    "Sistema de áudio",
-    "Antena eléctrica",
-    "Câmara de marcha-atrás",
-    "Sensores de estacionamento",
-    "Alarmes e imobilizadores",
-    "Acessórios instalados posteriormente",
-    "Relés e fusíveis auxiliares",
-    "Consumo parasita da bateria",
-    "Instalação sem sobrecarregar circuitos"
-   ]},
-   {title:"Sistemas de segurança",topics:[
-    "Sistema de retenção suplementar SRS",
-    "Airbags e pré-tensores",
-    "Sensores de impacto",
-    "Luz de aviso do airbag",
-    "ABS e sensores de roda",
-    "Noções sobre controlo electrónico de estabilidade",
-    "Travão eléctrico de estacionamento",
-    "Cuidados com circuitos pirotécnicos",
-    "Diagnóstico seguro de sistemas críticos",
-    "Teste de avaliação do nível 7"
-   ]}
- ]
- },
- {
-  title:"Redes, Comunicação e Diagnóstico Avançado",
-  icon:"📡",
-  description:"Explora OBD-II, CAN, ferramentas de diagnóstico e análise sistemática de falhas.",
-  modules:[
-   {title:"Diagnóstico OBD",topics:[
-    "Objectivo do OBD-II",
-    "Conector de diagnóstico",
-    "Códigos DTC",
-    "Estrutura dos códigos de avaria",
-    "Leitor de códigos",
-    "Dados congelados",
-    "Monitores de prontidão",
-    "Apagar códigos e consequências",
-    "Diagnóstico orientado por sintomas",
-    "Relatório técnico de diagnóstico"
-   ]},
-   {title:"Redes de comunicação",topics:[
-    "Princípios das redes automóveis",
-    "Rede CAN",
-    "CAN High e CAN Low",
-    "Terminadores de rede",
-    "Medição de resistência CAN com alimentação desligada",
-    "Formas de onda CAN",
-    "Rede LIN",
-    "Perda de comunicação entre módulos",
-    "Curto-circuito em linhas de comunicação",
-    "Cuidados ao sondar conectores"
-   ]},
-   {title:"Método avançado",topics:[
-    "Confirmar a queixa do cliente",
-    "Pesquisar informação técnica",
-    "Ler o diagrama correcto",
-    "Definir hipóteses de avaria",
-    "Seleccionar testes discriminatórios",
-    "Analisar resultados contraditórios",
-    "Identificar falhas intermitentes",
-    "Documentar medições",
-    "Verificar a reparação",
-    "Teste de avaliação do nível 8"
-   ]}
- ]
- },
- {
-  title:"Veículos Híbridos e Eléctricos",
-  icon:"🔌",
-  description:"Introdução aos sistemas de tracção electrificada e procedimentos de segurança.",
-  modules:[
-   {title:"Fundamentos híbridos e eléctricos",topics:[
-    "Diferenças entre veículo térmico, híbrido e eléctrico",
-    "Arquitectura de um veículo híbrido",
-    "Arquitectura de um veículo eléctrico",
-    "Bateria de alta tensão",
-    "Motor eléctrico de tracção",
-    "Inversor e conversor DC-DC",
-    "Carregador de bordo",
-    "Travagem regenerativa",
-    "Sistema térmico da bateria",
-    "Terminologia de alta tensão"
-   ]},
-   {title:"Segurança e isolamento",topics:[
-    "Identificação de cabos de alta tensão",
-    "Riscos de choque eléctrico",
-    "Equipamento de protecção adequado",
-    "Formação obrigatória antes de intervir",
-    "Procedimentos de isolamento do veículo",
-    "Bloqueio e etiquetagem",
-    "Verificação de ausência de tensão",
-    "Instrumentos com categoria de segurança apropriada",
-    "Resposta a danos na bateria",
-    "Limites de intervenção do técnico"
-   ]},
-   {title:"Sistemas e diagnóstico",topics:[
-    "Gestão electrónica da bateria",
-    "Monitorização de células",
-    "Contactores de alta tensão",
-    "Interbloqueio de alta tensão",
-    "Falhas do sistema de carregamento",
-    "Conversor DC-DC e bateria auxiliar",
-    "Códigos de avaria de veículos electrificados",
-    "Refrigeração da bateria",
-    "Manutenção preventiva autorizada",
-    "Teste de avaliação do nível 9"
-   ]}
- ]
- },
- {
-  title:"Projecto de Oficina e Competência Profissional",
-  icon:"🏆",
-  description:"Aplica o conhecimento a casos integrados, procedimentos de oficina e relatórios.",
-  modules:[
-   {title:"Organização profissional",topics:[
-    "Organização da bancada de trabalho",
-    "Selecção e conservação das ferramentas",
-    "Gestão de peças e consumíveis",
-    "Recepção do veículo",
-    "Entrevista e registo dos sintomas",
-    "Orçamento e autorização do cliente",
-    "Segurança e higiene na oficina",
-    "Gestão de resíduos e baterias",
-    "Registo de medições",
-    "Comunicação técnica com o cliente"
-   ]},
-   {title:"Projectos integrados",topics:[
-    "Diagnóstico completo de uma bateria",
-    "Diagnóstico de um sistema de arranque",
-    "Diagnóstico de um sistema de carga",
-    "Reparação de iluminação",
-    "Diagnóstico de consumo parasita",
-    "Diagnóstico de sensor e actuador",
-    "Análise de códigos OBD-II",
-    "Interpretação de um diagrama completo",
-    "Elaboração de relatório técnico",
-    "Verificação final e controlo de qualidade"
-   ]},
-   {title:"Preparação profissional",topics:[
-    "Plano de manutenção preventiva",
-    "Método de diagnóstico por etapas",
-    "Evitar substituições desnecessárias",
-    "Escolher peças compatíveis",
-    "Testes antes e depois da reparação",
-    "Casos com avarias múltiplas",
-    "Apresentação de um caso técnico",
-    "Revisão das normas de segurança",
-    "Simulação de avaliação final",
-    "Teste de avaliação do nível 10"
-   ]}
- ]
+  ]
  }
 ];
 
-/* Geração automática das 300 aulas */
-const COURSE = LEVELS.map((level, li) => ({
- ...level,
- number:li+1,
- modules:level.modules.map((module, mi) => ({
-  ...module,
-  number:mi+1,
-  lessons:module.topics.map((topic, ti) => ({
-   id:`L${li+1}M${mi+1}A${ti+1}`,
-   title:topic,
-   level:li+1,
-   module:mi+1,
-   number:ti+1,
-   globalIndex:li*30+mi*10+ti
-  }))
- }))
-}));
+let currentUser = null;
+let userProgress = { completedLessons: [], invitesCount: 0, bestScore: 0 };
+let invitedByRef = null;
 
-const TOTAL_LESSONS = COURSE.reduce(
- (sum,level)=>sum+level.modules.reduce(
-  (s,module)=>s+module.lessons.length,0
- ),0
-);
+function loadUsersDB() {
+ return JSON.parse(localStorage.getItem("volt_users") || "[]");
+}
 
-const TOTAL_TESTS = COURSE.length * 3;
+function saveUsersDB(users) {
+ localStorage.setItem("volt_users", JSON.stringify(users));
+}
 
-let activeLevel = 1;
-let activeModule = 1;
-let currentLessonId = null;
-let currentTest = null;
-let selectedPoint = "BAT+";
-let labFault = "none";
-let labMeasurements = 0;
-let labChallenge = 1;
-let reviewQuestions = [];
-let currentView = "dashboard";
+window.addEventListener('DOMContentLoaded', () => {
+ const urlParams = new URLSearchParams(window.location.search);
+ const ref = urlParams.get('ref');
+ if(ref) {
+  invitedByRef = ref;
+  document.getElementById('inviteBanner').classList.remove('hidden');
+  document.getElementById('inviteBanner').textContent = "Entraste através do convite de um amigo! Cria conta para o ajudar.";
+ }
+});
 
-const STORAGE_KEY = "voltmaster_pro_progress_v1";
-
-const DEFAULT_PROGRESS = {
- completedLessons:[],
- passedTests:[],
- testScores:{},
- attempts:{},
- bestScore:0,
- solvedCases:[],
- mistakes:[],
- studentName:"",
- theme:"dark"
-};
-
-let progress = loadProgress();
-
-function loadProgress(){
- try{
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if(!raw) return structuredClone(DEFAULT_PROGRESS);
-  const data = JSON.parse(raw);
-  return {...structuredClone(DEFAULT_PROGRESS),...data};
- }catch(error){
-  return JSON.parse(JSON.stringify(DEFAULT_PROGRESS));
+function checkActiveSession() {
+ const savedUser = localStorage.getItem("volt_current_user");
+ if (savedUser) {
+  currentUser = savedUser;
+  loadUserData();
+  document.getElementById("authView").classList.add("hidden");
+  document.getElementById("mainAppView").classList.remove("hidden");
+  document.getElementById("currentUserBadge").textContent = "Utilizador: " + currentUser;
+  setupInviteLink();
+  initApp();
  }
 }
 
-function saveProgress(){
- try{
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(progress));
- }catch(error){
-  console.warn("Não foi possível guardar o progresso.",error);
+function switchAuthTab(tab) {
+ if(tab === 'login') {
+  document.getElementById('loginForm').classList.remove('hidden');
+  document.getElementById('signupForm').classList.add('hidden');
+  document.getElementById('tabLogin').className = 'primary small';
+  document.getElementById('tabSignup').className = 'secondary small';
+ } else {
+  document.getElementById('loginForm').classList.add('hidden');
+  document.getElementById('signupForm').classList.remove('hidden');
+  document.getElementById('tabLogin').className = 'secondary small';
+  document.getElementById('tabSignup').className = 'primary small';
  }
- updateDashboard();
+ document.getElementById('authFormFeedback').classList.add('hidden');
 }
 
-function escapeHTML(value){
- return String(value).replace(/[&<>"']/g,ch=>({
-  "&":"&amp;",
-  "<":"&lt;",
-  ">":"&gt;",
-  '"':"&quot;",
-  "'":"&#39;"
- }[ch]));
+function showAuthError(msg) {
+ const fb = document.getElementById('authFormFeedback');
+ fb.textContent = msg;
+ fb.classList.remove('hidden');
 }
 
-function getAllLessons(){
- return COURSE.flatMap(level=>
-  level.modules.flatMap(module=>module.lessons)
- );
-}
+function handleSignup() {
+ const username = document.getElementById('signupUser').value.trim();
+ const pass = document.getElementById('signupPass').value;
 
-function getLesson(id){
- return getAllLessons().find(lesson=>lesson.id===id);
-}
-
-function getModule(levelNo,moduleNo){
- return COURSE[levelNo-1]?.modules[moduleNo-1] || null;
-}
-
-function isLessonDone(id){
- return progress.completedLessons.includes(id);
-}
-
-function isTestPassed(levelNo,moduleNo){
- return progress.passedTests.includes(`T${levelNo}M${moduleNo}`);
-}
-
-function moduleUnlocked(levelNo,moduleNo){
- if(levelNo===1 && moduleNo===1) return true;
- if(moduleNo>1){
-  return isTestPassed(levelNo,moduleNo-1);
+ if(!username || !pass) {
+  showAuthError("Preenche o utilizador e a palavra-passe.");
+  return;
  }
- return isTestPassed(levelNo-1,3);
+
+ let users = loadUsersDB();
+ if(users.some(u => u.username === username)) {
+  showAuthError("Este nome de utilizador já existe.");
+  return;
+ }
+
+ if(invitedByRef) {
+  const inviter = users.find(u => u.username === invitedByRef);
+  if(inviter && inviter.username !== username) {
+   inviter.progress.invitesCount = (inviter.progress.invitesCount || 0) + 1;
+  }
+ }
+
+ users.push({ username, pass, progress: { completedLessons: [], invitesCount: 0, bestScore: 0 } });
+ saveUsersDB(users);
+
+ localStorage.setItem("volt_current_user", username);
+ checkActiveSession();
 }
 
-function lessonUnlocked(lesson){
- if(!lesson) return false;
- return moduleUnlocked(lesson.level,lesson.module);
+function handleLogin() {
+ const username = document.getElementById('loginUser').value.trim();
+ const pass = document.getElementById('loginPass').value;
+
+ let users = loadUsersDB();
+ const user = users.find(u => u.username === username && u.pass === pass);
+
+ if(!user) {
+  showAuthError("Utilizador ou palavra-passe incorretos.");
+  return;
+ }
+
+ localStorage.setItem("volt_current_user", user.username);
+ checkActiveSession();
 }
 
-function levelCompleted(levelNo){
- const level=COURSE[levelNo-1];
- return level.modules.every(module=>
-  module.lessons.every(lesson=>isLessonDone(lesson.id)) &&
-  isTestPassed(levelNo,module.number)
- );
+function handleLogout() {
+ localStorage.removeItem("volt_current_user");
+ location.reload();
 }
 
-function getProgressPercent(){
- return Math.round(
-  progress.completedLessons.length / TOTAL_LESSONS * 100
- );
+function loadUserData() {
+ let users = loadUsersDB();
+ const user = users.find(u => u.username === currentUser);
+ if(user && user.progress) {
+  userProgress = user.progress;
+  if(userProgress.invitesCount === undefined) userProgress.invitesCount = 0;
+ }
 }
 
-function getPassedTestCount(){
- return progress.passedTests.length;
+function saveUserData() {
+ let users = loadUsersDB();
+ const idx = users.findIndex(u => u.username === currentUser);
+ if(idx !== -1) {
+  users[idx].progress = userProgress;
+  saveUsersDB(users);
+ }
 }
 
-function getBestScore(){
- const scores=Object.values(progress.testScores);
- return scores.length ? Math.max(...scores) : 0;
+function setupInviteLink() {
+ const link = window.location.origin + window.location.pathname + "?ref=" + encodeURIComponent(currentUser);
+ document.getElementById("inviteLinkInput").value = link;
 }
 
-function getSolvedCaseCount(){
- return progress.solvedCases.length;
+function copyInviteLink() {
+ const copyText = document.getElementById("inviteLinkInput");
+ copyText.select();
+ navigator.clipboard.writeText(copyText.value);
+ const fb = document.getElementById("copyFeedback");
+ fb.classList.remove("hidden");
+ setTimeout(() => fb.classList.add("hidden"), 3000);
 }
 
-function lessonPosition(lesson){
- return lesson ? lesson.globalIndex+1 : 1;
+function resetProgress() {
+ userProgress = { completedLessons: [], invitesCount: userProgress.invitesCount, bestScore: 0 };
+ saveUserData();
+ initApp();
 }
 
-function getNextLesson(){
- const lessons=getAllLessons();
- return lessons.find(lesson=>
-  !isLessonDone(lesson.id) && lessonUnlocked(lesson)
- ) || lessons.find(lesson=>!isLessonDone(lesson.id)) || lessons[0];
+let activeLevel = 0;
+
+function showView(viewId) {
+ document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+ document.getElementById(viewId).classList.add("active");
 }
 
-function getLevelFirstLesson(levelNo){
- return COURSE[levelNo-1]?.modules[0]?.lessons[0] || null;
+function initApp() {
+ renderDashboard();
+ renderCourse();
+ updateStats();
 }
 
-function getLevelTest(levelNo,moduleNo){
- return `T${levelNo}M${moduleNo}`;
-}
-
-function findModuleTest(levelNo,moduleNo){
+function checkInviteBlock() {
+ const doneCount = userProgress.completedLessons.length;
+ const requiredInvites = Math.floor(doneCount / 5);
+ const currentInvites = userProgress.invitesCount || 0;
+ 
  return {
-  id:getLevelTest(levelNo,moduleNo),
-  level:levelNo,
-  module:moduleNo,
-  title:`Teste do módulo ${moduleNo} — Nível ${levelNo}`
+  isBlocked: currentInvites < requiredInvites,
+  required: requiredInvites,
+  current: currentInvites,
+  nextUnlockAt: (requiredInvites + 1) * 5
  };
 }
-</script><script>
-  /* =========================================
-   CONTEÚDO EDUCATIVO DAS AULAS
-   ========================================= */
-  
-  const LESSON_CONTENT = {
-    "O que é a electricidade automóvel": {
-      intro: "A electricidade automóvel é a área que estuda a produção, o armazenamento, a distribuição e a utilização da energia eléctrica nos veículos.",
-      sections: [
-        ["Importância do sistema eléctrico", "O sistema eléctrico permite ligar o motor, alimentar as luzes, carregar a bateria e operar equipamentos como o rádio, os vidros eléctricos, os sensores e as unidades electrónicas."],
-        ["Principais sistemas", "Os sistemas mais comuns incluem a bateria, o arranque, a carga, a iluminação, a ignição, os acessórios eléctricos e a gestão electrónica do motor."],
-        ["Como funciona", "A bateria fornece energia eléctrica quando necessário. Durante o funcionamento do motor, o alternador convencional fornece energia aos consumidores e repõe a carga da bateria, de acordo com a estratégia do veículo."],
-        ["Exemplo de oficina", "Se o motor não arrancar, o técnico verifica a bateria, os terminais, o circuito de comando, o motor de arranque e as condições mecânicas relevantes."]
-      ],
-      points: ["A electricidade alimenta muitos sistemas essenciais do veículo.", "O diagnóstico exige medições e consulta de informação técnica.", "Nem todas as avarias eléctricas são causadas pela bateria."],
-      exercise: "Um automóvel não arranca e as luzes do painel ficam muito fracas. Indica duas verificações iniciais e explica a sua importância."
-    },
-    
-    "Tensão eléctrica e diferença de potencial": {
-      intro: "A tensão eléctrica, medida em volts (V), representa a diferença de potencial eléctrico entre dois pontos de um circuito.",
-      sections: [
-        ["Unidade de medida", "A unidade é o volt. Um multímetro mede a tensão colocando as pontas de prova em paralelo com os pontos que se pretende comparar."],
-        ["Tensão da bateria", "Uma bateria convencional de chumbo-ácido de 12 V, em repouso e com carga adequada, pode apresentar aproximadamente 12,6 V. O valor real depende da tecnologia, da temperatura, do estado de carga e das condições de medição."],
-        ["Tensão sob carga", "Uma bateria pode apresentar tensão normal sem carga e sofrer uma queda excessiva quando se exige corrente. Por isso, uma única leitura não confirma necessariamente o seu estado."],
-        ["Segurança", "Para medir tensão, selecciona-se a função adequada e liga-se o instrumento em paralelo. Nunca se deve colocar um multímetro configurado para corrente directamente entre os terminais da bateria."]
-      ],
-      points: ["Tensão mede-se em volts.", "A medição de tensão é feita em paralelo.", "A leitura depende das condições do circuito."],
-      exercise: "Uma bateria apresenta 12,5 V em repouso. Explica por que motivo este valor, isoladamente, não garante que consiga accionar o motor de arranque."
-    },
-    
-    "Corrente eléctrica e sentido convencional": {
-      intro: "A corrente eléctrica corresponde ao fluxo de carga eléctrica. Nos circuitos automóveis, a sua unidade é o ampere (A).",
-      sections: [
-        ["Relação com a carga", "A corrente depende da tensão aplicada e da resistência total do circuito. Para uma resistência fixa, o aumento da tensão provoca o aumento da corrente."],
-        ["Sentido convencional", "Por convenção, considera-se que a corrente circula do potencial positivo para o negativo no circuito exterior, embora os electrões num condutor metálico se desloquem no sentido oposto."],
-        ["Medição", "A corrente mede-se com um instrumento apropriado em série ou com uma pinça amperimétrica adequada. A ligação incorrecta pode provocar curto-circuito ou danificar o instrumento."],
-        ["Aplicação prática", "O motor de arranque consome uma corrente elevada. Um circuito de iluminação normalmente consome muito menos, embora os valores variem com a potência e o projecto."]
-      ],
-      points: ["A corrente mede-se em amperes.", "A corrente exige um percurso eléctrico fechado.", "O instrumento deve suportar a corrente prevista."],
-      exercise: "Por que razão o circuito de um motor de arranque utiliza cabos mais grossos do que muitos circuitos de sinal?"
-    },
-    
-    "Resistência eléctrica e Lei de Ohm": {
-      intro: "A resistência eléctrica, medida em ohms (Ω), representa a oposição à passagem da corrente.",
-      sections: [
-        ["Lei de Ohm", "Para um elemento óhmico, a relação fundamental é V = I × R. Assim, I = V / R e R = V / I."],
-        ["Exemplo calculado", "Se um consumidor resistivo tiver 6 Ω e receber 12 V, a corrente ideal será I = 12 / 6 = 2 A."],
-        ["Resistência de contacto", "Oxidação, ligações frouxas e condutores danificados podem introduzir resistência indesejada. Quando circula corrente, essa resistência pode causar queda de tensão e aquecimento."],
-        ["Limitações", "Lâmpadas, motores, díodos e circuitos electrónicos nem sempre se comportam como resistências constantes. A Lei de Ohm deve ser aplicada considerando as características do componente."]
-      ],
-      points: ["V = I × R.", "A resistência mede-se em ohms.", "Uma ligação defeituosa pode funcionar sem carga e falhar quando a corrente aumenta."],
-      exercise: "Um consumidor resistivo de 4 Ω está ligado a 12 V. Calcula a corrente e indica a fórmula utilizada."
-    },
-    
-    "Potência e energia eléctrica": {
-      intro: "A potência eléctrica indica a rapidez com que a energia é convertida ou consumida. A unidade é o watt (W).",
-      sections: [
-        ["Fórmula principal", "Em corrente contínua, a potência eléctrica pode ser calculada por P = V × I."],
-        ["Exemplo", "Um equipamento alimentado a 12 V e que consome 5 A utiliza aproximadamente 60 W, assumindo que tensão e corrente correspondem às mesmas condições de funcionamento."],
-        ["Energia", "A energia depende da potência e do tempo. Um equipamento de 60 W ligado durante 2 horas consome 120 Wh, ou 0,12 kWh."],
-        ["Aplicação automóvel", "Conhecer a potência ajuda a avaliar a carga eléctrica, seleccionar componentes compatíveis e compreender o consumo de equipamentos."]
-      ],
-      points: ["Potência mede-se em watts.", "P = V × I.", "A energia consumida aumenta com o tempo de utilização."],
-      exercise: "Um equipamento consome 3 A a 12 V. Calcula a potência eléctrica."
-    },
-    
-    "Circuitos em série": {
-      intro: "Num circuito em série, os componentes estão ligados num único percurso principal para a corrente.",
-      sections: [
-        ["Características", "A corrente é igual em todos os componentes ideais ligados em série. A tensão total corresponde à soma das quedas de tensão."],
-        ["Resistência equivalente", "Para resistências em série: Req = R1 + R2 + R3."],
-        ["Exemplo", "Duas resistências de 2 Ω e 4 Ω em série apresentam uma resistência equivalente de 6 Ω."],
-        ["Avarias", "Se existir uma interrupção num elemento que faça parte do único percurso, a corrente deixa de circular por esse percurso."]
-      ],
-      points: ["Existe um percurso principal para a corrente.", "As resistências somam-se.", "Uma interrupção pode afectar todo o circuito."],
-      exercise: "Duas resistências de 3 Ω e 5 Ω estão em série. Calcula a resistência equivalente."
-    },
-    
-    "Circuitos em paralelo": {
-      intro: "Num circuito em paralelo, os componentes estão ligados entre os mesmos dois nós eléctricos.",
-      sections: [
-        ["Características", "A tensão ideal é igual nos ramos ligados aos mesmos dois nós. A corrente total é a soma das correntes dos ramos."],
-        ["Resistência equivalente", "Para duas resistências em paralelo: 1/Req = 1/R1 + 1/R2."],
-        ["Exemplo", "Duas resistências de 6 Ω em paralelo apresentam uma resistência equivalente de 3 Ω."],
-        ["Aplicação automóvel", "Muitos consumidores automóveis possuem ramos eléctricos paralelos. Uma avaria num ramo pode não desligar todos os outros."]
-      ],
-      points: ["A tensão é igual nos ramos paralelos ideais.", "As correntes dos ramos somam-se.", "A resistência equivalente é inferior à menor resistência individual."],
-      exercise: "Duas resistências de 4 Ω estão em paralelo. Calcula a resistência equivalente."
-    },
-    
-    "Utilização correcta do multímetro": {
-      intro: "O multímetro é um instrumento de diagnóstico que permite medir grandezas eléctricas, desde que a função, as ligações e a gama sejam seleccionadas correctamente.",
-      sections: [
-        ["Preparação", "Inspecciona o aparelho, os cabos e as pontas de prova. Confirma a categoria de segurança e os limites indicados pelo fabricante."],
-        ["Medição de tensão", "Selecciona tensão contínua para uma bateria automóvel convencional. Coloca as pontas nos dois pontos a comparar."],
-        ["Medição de resistência", "Desliga a alimentação do circuito e isola o componente quando necessário. A medição num circuito energizado pode produzir resultados incorrectos ou danificar o aparelho."],
-        ["Medição de corrente", "Usa uma entrada e uma gama adequadas. O amperímetro é colocado em série; nunca o ligues directamente entre positivo e massa."],
-        ["Interpretação", "Compara as leituras com os valores especificados pelo fabricante e com as condições reais do teste."]
-      ],
-      points: ["Confirma a entrada correcta dos cabos.", "Desliga a alimentação antes de medir resistência.", "Nunca provoques deliberadamente um curto-circuito com as pontas de prova."],
-      exercise: "Explica o que pode acontecer se tentares medir a tensão de uma bateria com os cabos do multímetro ligados à entrada de corrente."
-    },
-    
-    "Função da bateria": {
-      intro: "A bateria armazena energia química e converte-a em energia eléctrica quando necessário. Também estabiliza a alimentação da rede eléctrica do veículo.",
-      sections: [
-        ["Arranque", "A bateria fornece a corrente necessária ao motor de arranque e aos circuitos de comando."],
-        ["Consumidores", "Com o motor desligado, alimenta os equipamentos permitidos pela arquitectura do veículo, até ao limite da energia disponível."],
-        ["Tecnologias", "Existem baterias inundadas, EFB, AGM e outras tecnologias. O tipo correcto depende das especificações do fabricante."],
-        ["Diagnóstico", "Verificam-se o estado físico, os terminais, a tensão em repouso e, quando indicado, o desempenho sob carga ou por equipamento de teste próprio."]
-      ],
-      points: ["Uma bateria pode apresentar tensão e ainda ter capacidade insuficiente.", "O tipo de bateria deve ser compatível com o veículo.", "A polaridade incorrecta pode causar danos graves."],
-      exercise: "Indica três verificações que devem ser efectuadas antes de concluir que uma bateria está avariada."
-    },
-    
-    "Função do motor de arranque": {
-      intro: "O motor de arranque transforma energia eléctrica em movimento mecânico para fazer rodar o motor térmico até este conseguir funcionar por si.",
-      sections: [
-        ["Componentes", "Inclui normalmente motor eléctrico, mecanismo de engrenagem e solenóide, embora a construção varie."],
-        ["Sequência de funcionamento", "Ao solicitar o arranque, o circuito de comando activa o solenóide, que acciona o mecanismo e fecha os contactos de potência conforme o projecto."],
-        ["Diagnóstico", "Verificam-se a bateria, as ligações, a queda de tensão, o circuito de comando e o próprio motor de arranque."],
-        ["Sintomas", "Cliques, rotação lenta ou ausência total de rotação podem ter causas eléctricas, mecânicas ou de comando."]
-      ],
-      points: ["O motor de arranque necessita de corrente elevada.", "Os cabos e as ligações são parte essencial do circuito.", "O diagnóstico deve distinguir problemas de alimentação de problemas mecânicos."],
-      exercise: "O motor de arranque roda lentamente. Indica quatro possíveis causas que devem ser investigadas."
-    },
-    
-    "Função do sistema de carga": {
-      intro: "Num veículo convencional, o sistema de carga fornece energia eléctrica durante o funcionamento do motor e mantém a bateria carregada.",
-      sections: [
-        ["Alternador", "Converte energia mecânica em energia eléctrica através da indução electromagnética."],
-        ["Rectificação", "Os díodos convertem a corrente alternada produzida internamente em corrente contínua adequada à rede do veículo."],
-        ["Regulação", "O sistema de controlo ajusta a produção de energia. Em veículos modernos, a estratégia pode variar conforme a carga, a temperatura e a gestão energética."],
-        ["Diagnóstico", "Inspeccionam-se a correia quando aplicável, as ligações, os sinais de comando e a tensão de carga segundo as especificações do fabricante."]
-      ],
-      points: ["O alternador não deve ser avaliado apenas por uma leitura isolada.", "A tensão de carga varia com a arquitectura e a estratégia de controlo.", "Nunca desligues a bateria com o motor em funcionamento como método de teste."],
-      exercise: "Por que motivo uma bateria pode descarregar mesmo quando o alternador aparentemente funciona?"
-    },
-    
-    "Fusíveis e dimensionamento": {
-      intro: "O fusível protege um circuito contra determinadas condições de sobrecorrente, interrompendo a corrente quando as suas características de funcionamento são ultrapassadas.",
-      sections: [
-        ["Escolha correcta", "A capacidade do fusível deve corresponder ao projecto do circuito e às especificações do fabricante."],
-        ["Avaria", "Um fusível aberto pode resultar de sobrecorrente, curto-circuito, falha de componente ou fusível deteriorado."],
-        ["Substituição", "Nunca substituas um fusível por outro de corrente nominal superior sem autorização técnica do fabricante."],
-        ["Diagnóstico", "Antes de substituir repetidamente um fusível que volta a fundir, localiza e corrige a causa da sobrecorrente."]
-      ],
-      points: ["O fusível protege a cablagem e o circuito conforme o projecto.", "Nunca se deve contornar a protecção.", "Um fusível que funde repetidamente exige investigação."],
-      exercise: "Um fusível de um circuito funde sempre que o consumidor é activado. Descreve a sequência segura de diagnóstico."
-    },
-    
-    "Teste de queda de tensão no arranque": {
-      intro: "O teste de queda de tensão permite identificar perdas excessivas num cabo ou numa ligação enquanto o circuito conduz corrente.",
-      sections: [
-        ["Princípio", "Uma ligação com resistência indesejada produz uma queda de tensão quando atravessada por corrente."],
-        ["Lado positivo", "Com o circuito a funcionar nas condições de teste autorizadas, mede-se entre o terminal positivo da fonte e o terminal positivo do consumidor."],
-        ["Lado negativo", "Mede-se entre a massa do consumidor e o terminal negativo da bateria, conforme o procedimento técnico."],
-        ["Interpretação", "Compara-se o resultado com os limites do fabricante. Uma leitura elevada exige segmentar o circuito para localizar a ligação defeituosa."]
-      ],
-      points: ["O teste é feito com corrente a circular.", "A medição deve seguir o procedimento seguro do fabricante.", "Não existe um único limite universal para todos os veículos."],
-      exercise: "Explica por que razão uma medição de resistência num cabo sem carga pode não revelar um mau contacto."
-    }
-  };
-  
-  /* Conteúdo adaptativo para todas as outras aulas */
-  function getLessonContent(lesson) {
-    const exact = LESSON_CONTENT[lesson.title];
-    if (exact) return exact;
-    
-    return {
-      intro: `Nesta aula vais estudar ${lesson.title.toLowerCase()}, um tema importante do nível ${lesson.level}: ${COURSE[lesson.level-1].title}.`,
-      sections: [
-        ["Objectivo da aula", `Compreender o princípio de funcionamento de ${lesson.title.toLowerCase()} e reconhecer a sua função no sistema eléctrico automóvel.`],
-        ["Componentes e funcionamento", "Identifica os componentes envolvidos, a alimentação eléctrica, o percurso da corrente, os sinais de comando e as condições necessárias para o funcionamento correcto."],
-        ["Método de diagnóstico", "Confirma a queixa, inspecciona visualmente o sistema, consulta o diagrama correcto e mede alimentação, massa e sinais quando aplicável. Compara os resultados com os dados técnicos do fabricante."],
-        ["Reparação e verificação", "Corrige a causa confirmada, utiliza componentes compatíveis e repete os testes nas condições em que a falha ocorria. Regista os resultados."]
-      ],
-      points: [
-        "Identificar a função do sistema estudado.",
-        "Consultar diagramas e especificações antes de intervir.",
-        "Confirmar a avaria por medições, em vez de trocar peças por tentativa."
-      ],
-      exercise: `Um cliente relata uma falha relacionada com ${lesson.title.toLowerCase()}. Escreve três verificações que farias, pela ordem, e explica como cada resultado ajudaria a localizar a causa.`
-    };
-  }
-  
-  /* Funções auxiliares para as aulas */
-  function getLessonPrevious(lesson) {
-    const all = getAllLessons();
-    const i = all.findIndex(item => item.id === lesson.id);
-    return i > 0 ? all[i - 1] : null;
-  }
-  
-  function getLessonNext(lesson) {
-    const all = getAllLessons();
-    const i = all.findIndex(item => item.id === lesson.id);
-    return i >= 0 && i < all.length - 1 ? all[i + 1] : null;
-  }
-  
-  function getLessonBreadcrumb(lesson) {
-    return `Nível ${lesson.level} › Módulo ${lesson.module} › Aula ${lesson.number}`;
-  }
-  
-  function lessonLearningObjectives(lesson) {
-    return [
-      `Explicar o conceito de ${lesson.title.toLowerCase()}.`,
-      "Identificar os componentes e as suas funções.",
-      "Aplicar um procedimento de diagnóstico seguro."
-    ];
-  }
-</script><script>
-/* =========================================
-   VOLTMASTER PRO — BANCO DE PERGUNTAS
-   ========================================= */
 
-const QUESTION_BANK = [
- {
-  topic:"Lei de Ohm",
-  q:"Um consumidor resistivo de 6 Ω está ligado a uma fonte de 12 V. Qual é a corrente ideal?",
-  options:["0,5 A","2 A","6 A","72 A"],
-  answer:1,
-  explanation:"Pela Lei de Ohm, I = V/R = 12/6 = 2 A."
- },
- {
-  topic:"Potência eléctrica",
-  q:"Um equipamento consome 4 A a 12 V. Qual é a potência eléctrica?",
-  options:["3 W","16 W","48 W","144 W"],
-  answer:2,
-  explanation:"P = V × I = 12 × 4 = 48 W."
- },
- {
-  topic:"Circuitos em série",
-  q:"Duas resistências de 3 Ω e 7 Ω estão ligadas em série. Qual é a resistência equivalente?",
-  options:["2,1 Ω","4 Ω","10 Ω","21 Ω"],
-  answer:2,
-  explanation:"Em série, as resistências somam-se: 3 + 7 = 10 Ω."
- },
- {
-  topic:"Circuitos em paralelo",
-  q:"Duas resistências iguais de 8 Ω estão ligadas em paralelo. Qual é a resistência equivalente ideal?",
-  options:["16 Ω","8 Ω","4 Ω","2 Ω"],
-  answer:2,
-  explanation:"Duas resistências iguais em paralelo têm metade do valor individual: 8/2 = 4 Ω."
- },
- {
-  topic:"Multímetro",
-  q:"Como se mede correctamente a tensão de uma bateria?",
-  options:[
-   "Com o instrumento em série e na entrada de corrente",
-   "Em paralelo, com o modo de tensão adequado",
-   "Com o circuito sempre em resistência",
-   "Ligando directamente as entradas de corrente aos dois pólos"
-  ],
-  answer:1,
-  explanation:"A tensão é medida em paralelo, com a função e as ligações correctas."
- },
- {
-  topic:"Medição de resistência",
-  q:"Antes de medir a resistência de um componente num circuito automóvel, o que deves fazer?",
-  options:[
-   "Aumentar a tensão da bateria",
-   "Desligar a alimentação e isolar o componente quando necessário",
-   "Ligar o motor de arranque",
-   "Seleccionar sempre a medição de corrente"
-  ],
-  answer:1,
-  explanation:"A medição de resistência deve ser feita sem alimentação eléctrica, seguindo as instruções do instrumento."
- },
- {
-  topic:"Bateria",
-  q:"Uma bateria apresenta uma tensão aparentemente normal em repouso, mas o motor não arranca. Qual é a conclusão correcta?",
-  options:[
-   "A bateria está definitivamente boa",
-   "O motor de arranque está necessariamente avariado",
-   "É preciso testar a bateria sob as condições adequadas e verificar o circuito",
-   "O alternador deve ser substituído imediatamente"
-  ],
-  answer:2,
-  explanation:"A tensão em repouso, por si só, não confirma a capacidade de fornecer corrente nem exclui falhas nas ligações."
- },
- {
-  topic:"Motor de arranque",
-  q:"O motor de arranque roda lentamente. Qual é uma das primeiras verificações úteis?",
-  options:[
-   "Substituir a ECU sem testes",
-   "Verificar bateria, ligações e quedas de tensão durante o arranque",
-   "Desligar todos os fusíveis",
-   "Aumentar a capacidade do fusível"
-  ],
-  answer:1,
-  explanation:"A alimentação, as ligações e as quedas de tensão devem ser verificadas antes de condenar componentes."
- },
- {
-  topic:"Alternador",
-  q:"Qual é a função dos díodos rectificadores de um alternador convencional?",
-  options:[
-   "Converter corrente alternada em corrente contínua",
-   "Armazenar combustível",
-   "Accionar mecanicamente o motor",
-   "Aumentar a capacidade física da bateria"
-  ],
-  answer:0,
-  explanation:"Os díodos rectificam a corrente produzida pelo alternador."
- },
- {
-  topic:"Sistema de carga",
-  q:"Por que razão não se deve desligar a bateria com o motor a funcionar para testar o alternador?",
-  options:[
-   "Porque a bateria nunca é utilizada num veículo",
-   "Porque pode provocar sobretensões e danificar componentes electrónicos",
-   "Porque aumenta sempre a potência do alternador",
-   "Porque desliga mecanicamente as rodas"
-  ],
-  answer:1,
-  explanation:"Desligar a bateria com o motor a funcionar pode causar perturbações eléctricas e danos electrónicos."
- },
- {
-  topic:"Fusíveis",
-  q:"Um fusível volta a fundir logo após a substituição. Qual é a atitude correcta?",
-  options:[
-   "Instalar um fusível de valor muito superior",
-   "Contornar o fusível com um fio",
-   "Investigar a causa da sobrecorrente ou do curto-circuito",
-   "Continuar a substituí-lo sem efectuar testes"
-  ],
-  answer:2,
-  explanation:"É necessário localizar e corrigir a causa antes de voltar a colocar o circuito em serviço."
- },
- {
-  topic:"Queda de tensão",
-  q:"Qual é a principal vantagem de um teste de queda de tensão?",
-  options:[
-   "Detectar perdas eléctricas numa ligação durante a passagem de corrente",
-   "Medir a pressão dos pneus",
-   "Determinar directamente a compressão do motor",
-   "Substituir todos os testes de continuidade"
-  ],
-  answer:0,
-  explanation:"O teste revela perdas de tensão num percurso eléctrico quando o circuito está a conduzir corrente."
- },
- {
-  topic:"Iluminação",
-  q:"Um farol está fraco apesar de a lâmpada estar em bom estado. Qual é um teste relevante?",
-  options:[
-   "Medir a queda de tensão na alimentação e na massa",
-   "Aumentar o fusível",
-   "Ligar o fio positivo à massa",
-   "Substituir a bateria sem qualquer teste"
-  ],
-  answer:0,
-  explanation:"Uma queda de tensão excessiva na alimentação ou na massa pode reduzir a tensão disponível para a lâmpada."
- },
- {
-  topic:"Relés",
-  q:"Qual é a função típica de um relé automóvel?",
-  options:[
-   "Comandar um circuito de potência através de um circuito de controlo",
-   "Armazenar energia química",
-   "Substituir todos os fusíveis",
-   "Converter combustível em corrente eléctrica directamente"
-  ],
-  answer:0,
-  explanation:"O relé permite que um circuito de comando controle contactos de outro circuito."
- },
- {
-  topic:"Sensores",
-  q:"Antes de substituir um sensor electrónico que apresenta um código de avaria, o técnico deve:",
-  options:[
-   "Substituí-lo imediatamente em todos os casos",
-   "Verificar o código, a alimentação, a massa, o sinal e a cablagem conforme o diagnóstico",
-   "Desligar permanentemente a ECU",
-   "Instalar um fusível maior"
-  ],
-  answer:1,
-  explanation:"Um código pode resultar de problemas de alimentação, cablagem, conectores, condições de funcionamento ou do próprio sensor."
- },
- {
-  topic:"OBD-II",
-  q:"O que representa normalmente um código DTC num sistema de diagnóstico automóvel?",
-  options:[
-   "Uma indicação de falha ou condição detectada pelo sistema",
-   "Uma garantia de que uma peça específica está avariada",
-   "A pressão exacta de todos os pneus",
-   "A capacidade da bateria em amperes-hora"
-  ],
-  answer:0,
-  explanation:"O código orienta o diagnóstico, mas deve ser interpretado com os sintomas, os dados e os testes adequados."
- },
- {
-  topic:"Circuitos de massa",
-  q:"Uma ligação de massa deficiente pode provocar:",
-  options:[
-   "Apenas falhas mecânicas sem efeitos eléctricos",
-   "Funcionamento intermitente, quedas de tensão e aquecimento",
-   "Aumento garantido da capacidade da bateria",
-   "Eliminação de todos os códigos de avaria"
-  ],
-  answer:1,
-  explanation:"Uma ligação de massa com resistência excessiva pode causar falhas de funcionamento e perdas de tensão."
- },
- {
-  topic:"Electrónica",
-  q:"Qual é uma característica básica de um díodo?",
-  options:[
-   "Permitir a condução predominantemente num sentido, dentro das suas condições de funcionamento",
-   "Armazenar combustível sob pressão",
-   "Medir directamente a temperatura dos pneus",
-   "Substituir mecanicamente uma correia"
-  ],
-  answer:0,
-  explanation:"O díodo conduz predominantemente num sentido e bloqueia no sentido inverso dentro dos seus limites."
- },
- {
-  topic:"Rede CAN",
-  q:"Qual é a função principal de uma rede CAN num automóvel?",
-  options:[
-   "Permitir a comunicação de dados entre unidades electrónicas",
-   "Bombear combustível mecanicamente",
-   "Armazenar a energia da bateria",
-   "Substituir todos os sensores"
-  ],
-  answer:0,
-  explanation:"A rede CAN permite a troca de mensagens entre módulos electrónicos."
- },
- {
-  topic:"Alta tensão",
-  q:"Antes de intervir num circuito de alta tensão de um veículo eléctrico, o técnico deve:",
-  options:[
-   "Tocar nos cabos para confirmar se estão energizados",
-   "Seguir formação, equipamento e procedimentos específicos do fabricante",
-   "Utilizar ferramentas sem isolamento",
-   "Desligar apenas o rádio"
-  ],
-  answer:1,
-  explanation:"A intervenção exige competência específica, isolamento seguro e confirmação de ausência de tensão segundo o procedimento aplicável."
- },
- {
-  topic:"Consumo parasita",
-  q:"Uma bateria descarrega durante vários dias com o veículo parado. Qual é um método de investigação adequado?",
-  options:[
-   "Substituir todos os módulos electrónicos",
-   "Medir o consumo em repouso segundo o procedimento do fabricante e localizar os circuitos envolvidos",
-   "Instalar um fusível maior",
-   "Desligar aleatoriamente cabos com o veículo em funcionamento"
-  ],
-  answer:1,
-  explanation:"O consumo em repouso deve ser medido e comparado com as especificações, considerando o tempo necessário para os módulos entrarem em repouso."
- },
- {
-  topic:"Potência",
-  q:"Um consumidor de 24 W é alimentado a 12 V. Qual é a corrente ideal?",
-  options:["0,5 A","2 A","12 A","288 A"],
-  answer:1,
-  explanation:"I = P/V = 24/12 = 2 A."
- },
- {
-  topic:"Curto-circuito",
-  q:"O que caracteriza um curto-circuito num circuito eléctrico?",
-  options:[
-   "Um percurso de resistência muito baixa não previsto no projecto",
-   "Uma bateria sempre descarregada",
-   "Um interruptor que funciona correctamente",
-   "Um circuito aberto sem qualquer percurso de corrente"
-  ],
-  answer:0,
-  explanation:"Um curto-circuito pode provocar corrente excessiva e deve ser localizado de forma segura."
- },
- {
-  topic:"Resistência de contacto",
-  q:"Uma ligação oxidada aquece quando passa corrente. Qual é a explicação física?",
-  options:[
-   "A resistência de contacto dissipa energia sob a forma de calor",
-   "A resistência elimina toda a corrente",
-   "O fusível transforma-se num sensor",
-   "A tensão deixa de existir em toda a bateria"
-  ],
-  answer:0,
-  explanation:"A dissipação numa resistência pode ser calculada por P = I²R."
- },
- {
-  topic:"Circuito de arranque",
-  q:"O solenóide do motor de arranque tem normalmente como função:",
-  options:[
-   "Accionar o mecanismo e comandar os contactos de potência",
-   "Regular a pressão do óleo",
-   "Medir o nível do líquido de refrigeração",
-   "Arrefecer o combustível"
-  ],
-  answer:0,
-  explanation:"O solenóide acciona o mecanismo de engrenagem e, conforme o projecto, fecha os contactos principais."
- },
- {
-  topic:"Regulador de tensão",
-  q:"Qual é a função do regulador no sistema de carga convencional?",
-  options:[
-   "Controlar a tensão de carga de acordo com a estratégia do sistema",
-   "Aumentar sempre a tensão sem limite",
-   "Substituir a bateria",
-   "Desligar todas as luzes"
-  ],
-  answer:0,
-  explanation:"O regulador controla a produção do alternador; os sistemas modernos podem utilizar estratégias electrónicas mais complexas."
- },
- {
-  topic:"Lâmpadas LED",
-  q:"Ao instalar uma lâmpada LED num circuito originalmente projectado para outra tecnologia, é necessário:",
-  options:[
-   "Verificar compatibilidade eléctrica, térmica, óptica e regulamentar",
-   "Ignorar a polaridade e a dissipação de calor em todos os casos",
-   "Remover sempre todos os fusíveis",
-   "Aumentar obrigatoriamente a tensão da bateria"
-  ],
-  answer:0,
-  explanation:"A compatibilidade depende do veículo, do controlador, da instalação e dos requisitos legais."
- },
- {
-  topic:"Airbags",
-  q:"Qual é a atitude correcta antes de trabalhar num sistema SRS/airbag?",
-  options:[
-   "Seguir o procedimento específico de desactivação e os tempos de espera do fabricante",
-   "Medir directamente os detonadores com qualquer multímetro",
-   "Aplicar tensão externa aos airbags",
-   "Curto-circuitar os conectores para evitar avisos"
-  ],
-  answer:0,
-  explanation:"Os sistemas SRS incluem dispositivos pirotécnicos e exigem procedimentos próprios. Não se devem medir directamente detonadores com instrumentos não autorizados."
- },
- {
-  topic:"Bateria auxiliar",
-  q:"Num veículo eléctrico, o conversor DC-DC tem frequentemente a função de:",
-  options:[
-   "Converter energia do barramento de alta tensão para alimentar a rede auxiliar de baixa tensão",
-   "Substituir mecanicamente o motor de tracção",
-   "Aumentar a pressão dos pneus",
-   "Transformar o sistema de travagem num alternador convencional"
-  ],
-  answer:0,
-  explanation:"O conversor DC-DC alimenta a rede de baixa tensão e pode carregar a bateria auxiliar, conforme a arquitectura do veículo."
- },
- {
-  topic:"Método de diagnóstico",
-  q:"Qual é a melhor sequência geral de diagnóstico de uma avaria eléctrica?",
-  options:[
-   "Trocar peças até o problema desaparecer",
-   "Confirmar o sintoma, inspeccionar, consultar informação técnica, medir, corrigir e verificar",
-   "Apagar todos os códigos sem os registar",
-   "Instalar um fusível maior para testar"
-  ],
-  answer:1,
-  explanation:"Uma sequência organizada evita substituições desnecessárias e permite comprovar a causa da falha."
- }
-];
+function updateStats() {
+ let totalLessons = 0;
+ LEVELS.forEach(l => l.modules.forEach(m => totalLessons += m.topics.length));
+ 
+ const doneCount = userProgress.completedLessons.length;
+ const percent = totalLessons > 0 ? Math.round((doneCount / totalLessons) * 100) : 0;
 
-/* =========================================
-   CONSTRUÇÃO DOS TESTES
-   ========================================= */
+ document.getElementById("sidePercent").textContent = percent + "%";
+ document.getElementById("sideBar").style.width = percent + "%";
+ document.getElementById("sideCounts").textContent = doneCount + " de " + totalLessons + " aulas concluídas";
+ document.getElementById("statLessons").textContent = doneCount;
+ document.getElementById("statInvites").textContent = userProgress.invitesCount || 0;
+ document.getElementById("statScore").textContent = userProgress.bestScore + "%";
 
-function buildTestQuestions(levelNo,moduleNo){
- const module=getModule(levelNo,moduleNo);
- const topics=module ? module.lessons.map(l=>l.title) : [];
+ document.getElementById("refCompletedCount").textContent = doneCount;
+ document.getElementById("refInvitesCount").textContent = userProgress.invitesCount || 0;
 
- const chosen=[];
- const start=(levelNo*7+moduleNo*3)%QUESTION_BANK.length;
-
- for(let i=0;i<10;i++){
-  const q=QUESTION_BANK[(start+i*3)%QUESTION_BANK.length];
-  chosen.push({...q});
- }
-
- /* Acrescenta questões específicas do módulo */
- if(topics.length){
-  chosen[0].moduleTopic=topics[0];
-  chosen[1].moduleTopic=topics[Math.min(2,topics.length-1)];
- }
-
- return chosen;
-}
-
-function getTestPassMark(){
- return 80;
-}
-
-function shuffleQuestions(questions){
- const result=questions.map(q=>({...q,options:q.options.map((text,index)=>({text,index}))}));
- for(let i=result.length-1;i>0;i--){
-  const j=Math.floor(Math.random()*(i+1));
-  [result[i],result[j]]=[result[j],result[i]];
- }
- return result.map(q=>{
-  const options=q.options;
-  for(let i=options.length-1;i>0;i--){
-   const j=Math.floor(Math.random()*(i+1));
-   [options[i],options[j]]=[options[j],options[i]];
-  }
-  return {
-   ...q,
-   options:options.map(o=>o.text),
-   answer:options.findIndex(o=>o.index===q.answer)
-  };
- });
-}
-
-function gradeTest(questions,answers){
- let correct=0;
- const details=questions.map((q,i)=>{
-  const answer=answers[i];
-  const isCorrect=Number(answer)===q.answer;
-  if(isCorrect) correct++;
-  return {question:q,answer,isCorrect};
- });
- return {
-  correct,
-  total:questions.length,
-  percent:Math.round(correct/questions.length*100),
-  details
- };
-}
-</script><script>
-/* =========================================
-   NAVEGAÇÃO ENTRE ECRÃS
-   ========================================= */
-
-function showView(viewId){
- const target=document.getElementById(viewId);
- if(!target) return;
-
- document.querySelectorAll(".view").forEach(view=>{
-  view.classList.remove("active");
- });
-
- target.classList.add("active");
- currentView=viewId;
-
- document.querySelectorAll(".navbtn").forEach(btn=>{
-  btn.classList.toggle("active",btn.dataset.view===viewId);
- });
-
- if(viewId==="dashboard") updateDashboard();
- if(viewId==="course") renderCourse();
- if(viewId==="diagnosis") renderCases();
- if(viewId==="review") renderReview();
- if(viewId==="certificateView") updateCertificate();
-
- window.scrollTo({top:0,behavior:"smooth"});
-}
-
-/* =========================================
-   PAINEL E PROGRESSO
-   ========================================= */
-
-function updateDashboard(){
- const done=progress.completedLessons.length;
- const tests=getPassedTestCount();
- const percent=getProgressPercent();
-
- setText("statLessons",`${done}/${TOTAL_LESSONS}`);
- setText("statTests",`${tests}/${TOTAL_TESTS}`);
- setText("statScore",`${getBestScore()}%`);
- setText("statCases",`${getSolvedCaseCount()}/8`);
-
- setText("sidePercent",`${percent}%`);
- setText("sideCounts",`${done} de ${TOTAL_LESSONS} aulas concluídas`);
- setText("sideTests",`${tests}/${TOTAL_TESTS}`);
-
- const bar=document.getElementById("sideBar");
- if(bar) bar.style.width=percent+"%";
-
- renderLevelCards();
-
- const next=getNextLesson();
- if(next){
-  setText("continueTitle",next.title);
-  setText("continueText",getLessonBreadcrumb(next));
- }else{
-  setText("continueTitle","Todas as aulas concluídas");
-  setText("continueText","Revê os testes e prepara a avaliação final.");
- }
-
- updateCertificate();
-}
-
-function setText(id,value){
- const element=document.getElementById(id);
- if(element) element.textContent=value;
-}
-
-function renderLevelCards(){
- const container=document.getElementById("levelCards");
- if(!container) return;
-
- container.innerHTML=COURSE.map(level=>{
-  const lessons=level.modules.flatMap(m=>m.lessons);
-  const done=lessons.filter(l=>isLessonDone(l.id)).length;
-  const percent=Math.round(done/lessons.length*100);
-  const unlocked=level.number===1 || isTestPassed(level.number-1,3);
-
-  return `
-   <article class="card levelcard ${unlocked?"":"locked"}">
-    <div class="levelhead">
-     <div>
-      <span class="badgeicon">${level.icon}</span>
-      <h3>Nível ${level.number}: ${escapeHTML(level.title)}</h3>
-     </div>
-     <span class="pill ${levelCompleted(level.number)?"ok":unlocked?"":"lock"}">
-      ${levelCompleted(level.number)?"Concluído":unlocked?"Disponível":"Bloqueado"}
-     </span>
-    </div>
-    <p>${escapeHTML(level.description)}</p>
-    <div class="meter"><i style="width:${percent}%"></i></div>
-    <div class="row between">
-     <span class="tiny muted">${done}/30 aulas · ${percent}%</span>
-     <button class="small ${unlocked?"primary":""}" ${unlocked?"":"disabled"}
-      onclick="openLevel(${level.number})">
-      ${unlocked?"Estudar":"Bloqueado"}
-     </button>
-    </div>
-   </article>
-  `;
- }).join("");
-}
-
-function openLevel(levelNo){
- if(levelNo>1 && !isTestPassed(levelNo-1,3)){
-  alert("Conclui o teste do módulo 3 do nível anterior para desbloquear este nível.");
-  return;
- }
- activeLevel=levelNo;
- activeModule=1;
- showView("course");
- renderCourse();
-}
-
-function continueLearning(){
- const lesson=getNextLesson();
- if(lesson){
-  openLesson(lesson.id);
- }else{
-  showView("certificateView");
+ if(doneCount >= totalLessons && totalLessons > 0) {
+  document.getElementById("certificateStatus").className = "feedback good";
+  document.getElementById("certificateStatus").textContent = "Parabéns! Concluísse todas as aulas.";
+  document.getElementById("certificatePaper").classList.remove("hidden");
+  document.getElementById("certName").textContent = currentUser;
  }
 }
 
-/* =========================================
-   BIBLIOTECA DE AULAS
-   ========================================= */
-
-function renderCourse(){
- const levelTabs=document.getElementById("courseLevelTabs");
- const moduleTabs=document.getElementById("courseModuleTabs");
- const list=document.getElementById("lessonList");
- const summary=document.getElementById("courseSummary");
-
- if(!levelTabs || !moduleTabs || !list) return;
-
- levelTabs.innerHTML=COURSE.map(level=>`
-  <button class="tab ${level.number===activeLevel?"active":""}"
-   onclick="chooseLevel(${level.number})">
-   ${level.icon} Nível ${level.number}
-  </button>
- `).join("");
-
- const level=COURSE[activeLevel-1];
-
- moduleTabs.innerHTML=level.modules.map(module=>{
-  const unlocked=moduleUnlocked(activeLevel,module.number);
-  return `
-   <button class="tab ${module.number===activeModule?"active":""}"
-    ${unlocked?"":"disabled"}
-    onclick="chooseModule(${module.number})">
-    ${unlocked?"":"🔒"} Módulo ${module.number}
-   </button>
-  `;
- }).join("");
-
- const module=getModule(activeLevel,activeModule);
- const search=(document.getElementById("lessonSearch")?.value||"").trim().toLowerCase();
-
- const lessons=module.lessons.filter(lesson=>
-  lesson.title.toLowerCase().includes(search)
- );
-
- const done=module.lessons.filter(lesson=>isLessonDone(lesson.id)).length;
-
- summary.innerHTML=`
-  <div class="card" style="margin:10px 0 14px">
-   <h3>${escapeHTML(level.title)}</h3>
-   <p>${escapeHTML(level.description)}</p>
-   <div class="row between">
-    <span class="muted tiny">${escapeHTML(module.title)}</span>
-    <span class="pill">${done}/10 aulas concluídas</span>
-   </div>
-  </div>
- `;
-
- list.innerHTML=lessons.map(lesson=>{
-  const unlocked=lessonUnlocked(lesson);
-  const completed=isLessonDone(lesson.id);
-
-  return `
-   <div class="lessonrow ${completed?"done":""} ${unlocked?"":"locked"}">
-    <div class="num">${completed?"✓":lesson.number}</div>
-    <div class="detail">
-     <b>${escapeHTML(lesson.title)}</b>
-     <small>${getLessonBreadcrumb(lesson)}</small>
-    </div>
-    <button class="small ${completed?"":"secondary"}"
-     ${unlocked?"":"disabled"}
-     onclick="openLesson('${lesson.id}')">
-     ${completed?"Rever":unlocked?"Abrir":"Bloqueada"}
-    </button>
-   </div>
-  `;
- }).join("") || `<p class="muted">Nenhuma aula corresponde à pesquisa.</p>`;
-
- const testPassed=isTestPassed(activeLevel,activeModule);
-
- list.insertAdjacentHTML("beforeend",`
-  <div class="card" style="margin-top:14px">
-   <div class="row between">
-    <div>
-     <h3>Teste do módulo ${activeModule}</h3>
-     <p>10 perguntas · Nota mínima: ${getTestPassMark()}%</p>
-     <span class="pill ${testPassed?"ok":""}">
-      ${testPassed?"Aprovado":"Por realizar"}
-     </span>
-    </div>
-    <button class="primary" onclick="startTest(${activeLevel},${activeModule})">
-     ${testPassed?"Repetir teste":"Fazer teste"}
-    </button>
-   </div>
-  </div>
- `);
-}
-
-function chooseLevel(levelNo){
- if(levelNo>1 && !isTestPassed(levelNo-1,3)){
-  alert("Este nível está bloqueado. Aprova o último teste do nível anterior.");
-  return;
- }
- activeLevel=levelNo;
- activeModule=1;
- renderCourse();
-}
-
-function chooseModule(moduleNo){
- if(!moduleUnlocked(activeLevel,moduleNo)){
-  alert("Conclui primeiro as aulas e o teste do módulo anterior.");
-  return;
- }
- activeModule=moduleNo;
- renderCourse();
-}
-
-/* =========================================
-   APRESENTAÇÃO DAS AULAS
-   ========================================= */
-
-function openLesson(lessonId){
- const lesson=getLesson(lessonId);
-
- if(!lesson){
-  alert("Não foi possível encontrar esta aula.");
-  return;
- }
-
- if(!lessonUnlocked(lesson)){
-  alert("Esta aula está bloqueada. Aprova primeiro o teste do módulo anterior.");
-  return;
- }
-
- currentLessonId=lessonId;
-
- const content=getLessonContent(lesson);
- const previous=getLessonPrevious(lesson);
- const next=getLessonNext(lesson);
- const done=isLessonDone(lessonId);
-
- const container=document.getElementById("lessonContent");
-
- container.innerHTML=`
-  <div class="row between">
-   <span class="pill">${getLessonBreadcrumb(lesson)}</span>
-   <span class="pill ${done?"ok":""}">${done?"Concluída":"Em estudo"}</span>
-  </div>
-
-  <h2 style="margin-top:14px">${escapeHTML(lesson.title)}</h2>
-  <p class="muted">${escapeHTML(COURSE[lesson.level-1].title)}</p>
-
-  <div class="callout">
-   <b>Objectivo:</b>
-   ${escapeHTML(content.intro)}
-  </div>
-
-  <h3>Conteúdo da aula</h3>
-
-  ${content.sections.map((section,index)=>`
-   <div>
-    <h3>${index+1}. ${escapeHTML(section[0])}</h3>
-    <p>${escapeHTML(section[1])}</p>
-   </div>
-  `).join("")}
-
-  <h3>O que deves recordar</h3>
-  <ul>
-   ${content.points.map(point=>`<li>${escapeHTML(point)}</li>`).join("")}
-  </ul>
-
-  <div class="callout">
-   <b>Exercício prático</b>
-   <p>${escapeHTML(content.exercise)}</p>
-   <textarea id="lessonAnswer" rows="4"
-    style="width:100%;background:#091626;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px"
-    placeholder="Escreve aqui a tua resposta..."></textarea>
-   <p class="tiny muted">O exercício serve para praticares o raciocínio. A resposta não é corrigida automaticamente.</p>
-  </div>
-
-  <div class="notice">
-   Segurança: consulta o manual do veículo, usa instrumentos adequados e não intervenhas em sistemas perigosos sem formação específica.
-  </div>
-
-  <div class="row between">
-   <button ${previous?"":"disabled"} onclick="openLesson('${previous?.id||""}')">← Aula anterior</button>
-   <button class="primary" onclick="completeLesson('${lesson.id}')">
-    ${done?"Concluída ✓":"Marcar como concluída"}
-   </button>
-   <button ${next?"":"disabled"} onclick="openNextLesson('${lesson.id}')">Próxima aula →</button>
-  </div>
-
-  <div style="margin-top:14px">
-   <button onclick="showView('course')">Voltar à lista de aulas</button>
-  </div>
- `;
-
- showView("lesson");
-}
-
-function openNextLesson(lessonId){
- const lesson=getLesson(lessonId);
- if(!lesson) return;
-
- const next=getLessonNext(lesson);
- if(!next){
-  alert("Chegaste à última aula do curso.");
-  return;
- }
-
- if(!lessonUnlocked(next)){
-  alert("Para avançar, conclui as aulas e aprova o teste do módulo necessário.");
-  return;
- }
-
- openLesson(next.id);
-}
-
-function completeLesson(lessonId){
- const lesson=getLesson(lessonId);
- if(!lesson) return;
-
- if(!progress.completedLessons.includes(lessonId)){
-  progress.completedLessons.push(lessonId);
- }
-
- saveProgress();
-
- const next=getLessonNext(lesson);
- const container=document.getElementById("lessonContent");
-
- if(container){
-  const button=container.querySelector("button.primary");
-  if(button){
-   button.textContent="Concluída ✓";
-  }
- }
-
- if(next && lessonUnlocked(next)){
-  if(confirm("Aula concluída! Queres abrir a próxima aula?")){
-   openLesson(next.id);
-  }
- }else{
-  alert("Aula marcada como concluída. Continua a tua formação!");
- }
-
- if(currentView==="course") renderCourse();
-}
-
-/* =========================================
-   TESTES E CORRECÇÃO AUTOMÁTICA
-   ========================================= */
-
-function startTest(levelNo,moduleNo){
- if(!moduleUnlocked(levelNo,moduleNo)){
-  alert("Este teste ainda está bloqueado.");
-  return;
- }
-
- activeLevel=levelNo;
- activeModule=moduleNo;
-
- const test=findModuleTest(levelNo,moduleNo);
- const questions=shuffleQuestions(buildTestQuestions(levelNo,moduleNo));
-
- currentTest={
-  id:test.id,
-  level:levelNo,
-  module:moduleNo,
-  questions,
-  answers:{}
- };
-
- renderTest();
- showView("test");
-}
-
-function renderTest(){
- if(!currentTest) return;
-
- const container=document.getElementById("testContent");
- const questions=currentTest.questions;
-
- container.innerHTML=`
-  <div class="row between">
-   <div>
-    <span class="pill">Nível ${currentTest.level} · Módulo ${currentTest.module}</span>
-    <h2>${escapeHTML(findModuleTest(currentTest.level,currentTest.module).title)}</h2>
-    <p class="muted">Responde às ${questions.length} perguntas. Nota mínima para aprovação: ${getTestPassMark()}%.</p>
-   </div>
-   <span class="pill">${Object.keys(currentTest.answers).length}/${questions.length} respondidas</span>
-  </div>
-
-  <div id="testProgress" class="meter">
-   <i style="width:${Object.keys(currentTest.answers).length/questions.length*100}%"></i>
-  </div>
-
-  <form id="quizForm">
-   ${questions.map((q,index)=>`
-    <fieldset class="question">
-     <legend>${index+1}. ${escapeHTML(q.q)}</legend>
-     ${q.options.map((option,optionIndex)=>`
-      <label class="option">
-       <input type="radio" name="q${index}" value="${optionIndex}"
-        ${Number(currentTest.answers[index])===optionIndex?"checked":""}
-        onchange="recordAnswer(${index},${optionIndex})">
-       <span>${escapeHTML(option)}</span>
-      </label>
-     `).join("")}
-    </fieldset>
-   `).join("")}
-
-   <div class="row between">
-    <button type="button" onclick="showView('course')">Sair do teste</button>
-    <button class="primary" type="button" onclick="submitTest()">Entregar respostas</button>
-   </div>
-  </form>
-
-  <div id="testResult"></div>
- `;
-}
-
-function recordAnswer(questionIndex,answerIndex){
- if(!currentTest) return;
-
- currentTest.answers[questionIndex]=answerIndex;
-
- const progressBar=document.querySelector("#testProgress i");
- if(progressBar){
-  progressBar.style.width=
-   Object.keys(currentTest.answers).length/currentTest.questions.length*100+"%";
- }
-
- const badge=document.querySelector("#testContent .row .pill:last-child");
- if(badge){
-  badge.textContent=
-   `${Object.keys(currentTest.answers).length}/${currentTest.questions.length} respondidas`;
- }
-}
-
-function submitTest(){
- if(!currentTest) return;
-
- const questions=currentTest.questions;
- const unanswered=questions.filter((q,index)=>
-  currentTest.answers[index]===undefined
- ).length;
-
- if(unanswered>0){
-  if(!confirm(`Ainda tens ${unanswered} pergunta(s) sem resposta. Queres entregar na mesma?`)){
-   return;
-  }
- }
-
- const result=gradeTest(questions,currentTest.answers);
- const passed=result.percent>=getTestPassMark();
- const testId=currentTest.id;
-
- progress.attempts[testId]=(progress.attempts[testId]||0)+1;
- progress.testScores[testId]=Math.max(
-  progress.testScores[testId]||0,
-  result.percent
- );
-
- progress.bestScore=Math.max(progress.bestScore||0,result.percent);
-
- if(passed && !progress.passedTests.includes(testId)){
-  progress.passedTests.push(testId);
- }
-
- result.details.forEach((detail,index)=>{
-  if(!detail.isCorrect){
-   progress.mistakes.push({
-    topic:detail.question.topic,
-    question:detail.question.q,
-    explanation:detail.question.explanation,
-    level:currentTest.level,
-    module:currentTest.module,
-    date:new Date().toISOString()
-   });
-  }
- });
-
- saveProgress();
-
- const resultBox=document.getElementById("testResult");
- if(!resultBox) return;
-
- resultBox.innerHTML=`
-  <div class="feedback ${passed?"good":"bad"}">
-   <h3>${passed?"Teste aprovado! ✓":"Ainda não atingiste a nota mínima."}</h3>
-   <p>Resultado: <b>${result.correct}/${result.total}</b> respostas correctas — <b>${result.percent}%</b>.</p>
-   <p>${passed?
-    "Podes continuar para o próximo módulo, se estiver desbloqueado.":
-    "Revê as explicações das respostas e volta a tentar."
-   }</p>
-  </div>
-
-  <h3>Correcção das respostas</h3>
-
-  ${result.details.map((detail,index)=>`
-   <div class="question">
-    <b>${index+1}. ${escapeHTML(detail.question.q)}</b>
-    <p class="${detail.isCorrect?"success":""}">
-     ${detail.isCorrect?"✓ Correcto":"✗ Incorrecto"}
-    </p>
-    <p><b>Resposta correcta:</b> ${escapeHTML(detail.question.options[detail.question.answer])}</p>
-    <p>${escapeHTML(detail.question.explanation)}</p>
-   </div>
-  `).join("")}
-
-  <div class="row">
-   <button class="primary" onclick="startTest(${currentTest.level},${currentTest.module})">Repetir teste</button>
-   <button onclick="showView('course')">Voltar ao curso</button>
-   <button onclick="showView('review')">Rever erros</button>
-  </div>
- `;
-
- resultBox.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-function renderReview(){
- const container=document.getElementById("reviewList");
- if(!container) return;
-
- const mistakes=progress.mistakes.slice(-20).reverse();
-
- if(!mistakes.length){
-  container.innerHTML=`
+function renderDashboard() {
+ const container = document.getElementById("levelCards");
+ container.innerHTML = "";
+ LEVELS.forEach((lvl, idx) => {
+  container.innerHTML += `
    <div class="card">
-    <h3>A tua revisão está pronta</h3>
-    <p class="muted">Quando terminares testes, as perguntas respondidas incorrectamente aparecerão aqui para reveres.</p>
-   </div>
-  `;
-  return;
+    <h3>${lvl.icon} ${lvl.title}</h3>
+    <p class="muted">Módulos especializados de formação prática.</p>
+    <button class="secondary small" onclick="activeLevel=${idx};showView('course');renderCourse();">Aceder ao Nível →</button>
+   </div>`;
+ });
+}
+
+function renderCourse() {
+ const tabsContainer = document.getElementById("courseLevelTabs");
+ tabsContainer.innerHTML = "";
+ LEVELS.forEach((lvl, idx) => {
+  tabsContainer.innerHTML += `<button class="tab ${idx === activeLevel ? 'active':''}" onclick="activeLevel=${idx};renderCourse()">${lvl.title}</button>`;
+ });
+
+ const blockStatus = checkInviteBlock();
+ const warningBox = document.getElementById("inviteWarningBox");
+
+ if(blockStatus.isBlocked) {
+  warningBox.className = "notice";
+  warningBox.innerHTML = `<b>Atenção:</b> Atingiste o limite de 5 aulas sem convites suficientes. Para continuares a estudar e desbloquear novas aulas, partilha o teu link de convite na aba <a href="#" onclick="showView('referral');return false;" style="color:var(--accent)">Convites</a> (Precisas de pelo menos ${blockStatus.required} convite(s) registado(s)).`;
+ } else {
+  warningBox.className = "notice hidden";
  }
 
- container.innerHTML=mistakes.map((mistake,index)=>`
-  <div class="question">
-   <span class="pill">${escapeHTML(mistake.topic)}</span>
-   <h3>${escapeHTML(mistake.question)}</h3>
-   <p>${escapeHTML(mistake.explanation)}</p>
-   <button class="small secondary" onclick="openReviewTopic(${index})">Abrir tema no curso</button>
-  </div>
- `).join("");
-}
+ const list = document.getElementById("lessonList");
+ list.innerHTML = "";
+ LEVELS[activeLevel].modules.forEach((mod, mIdx) => {
+  list.innerHTML += `<h3 style="margin:15px 0 8px;color:var(--accent2)">${mod.title}</h3>`;
+  mod.topics.forEach((topic, tIdx) => {
+   const lessonId = `L_${activeLevel}_${mIdx}_${tIdx}`;
+   const isDone = userProgress.completedLessons.includes(lessonId);
+   const isLockedByInvite = blockStatus.isBlocked && !isDone;
 
-function openReviewTopic(index){
- const mistake=progress.mistakes.slice(-20).reverse()[index];
- if(!mistake) return;
-
- activeLevel=mistake.level||1;
- activeModule=mistake.module||1;
-
- const module=getModule(activeLevel,activeModule);
- if(!moduleUnlocked(activeLevel,activeModule)){
-  activeLevel=1;
-  activeModule=1;
- }
-
- const lesson=getModule(activeLevel,activeModule).lessons[0];
- openLesson(lesson.id);
-}
-
-/* =========================================
-   FUNÇÕES INICIAIS
-   ========================================= */
-
-function toggleTheme(){
- const light=progress.theme!=="light";
- progress.theme=light?"light":"dark";
-
- if(light){
-  document.documentElement.style.setProperty("--bg","#eef3f9");
-  document.documentElement.style.setProperty("--panel","#ffffff");
-  document.documentElement.style.setProperty("--panel2","#e5edf6");
-  document.documentElement.style.setProperty("--text","#17283a");
-  document.documentElement.style.setProperty("--muted","#52667d");
-  document.documentElement.style.setProperty("--line","#cbd6e2");
- }else{
-  document.documentElement.style.setProperty("--bg","#07111f");
-  document.documentElement.style.setProperty("--panel","#101d30");
-  document.documentElement.style.setProperty("--panel2","#15253b");
-  document.documentElement.style.setProperty("--text","#edf4ff");
-  document.documentElement.style.setProperty("--muted","#a9bad2");
-  document.documentElement.style.setProperty("--line","#2b3d56");
- }
-
- saveProgress();
-}
-
-function applySavedTheme(){
- if(progress.theme==="light"){
-  toggleTheme();
- }
-}
-
-function saveStudentName(){
- const input=document.getElementById("studentName");
- if(!input) return;
- progress.studentName=input.value;
- saveProgress();
-}
-
-function updateCertificate(){
- const status=document.getElementById("certificateStatus");
- const paper=document.getElementById("certificatePaper");
- if(!status || !paper) return;
-
- const lessonsDone=progress.completedLessons.length>=TOTAL_LESSONS;
- const testsDone=progress.passedTests.length>=TOTAL_TESTS;
- const casesDone=progress.solvedCases.length>=8;
- const eligible=lessonsDone && testsDone && casesDone;
-
- status.className="feedback "+(eligible?"good":"bad");
- status.textContent=eligible?
-  "Parabéns! Cumpriste os requisitos educativos do curso.":
-  `Requisitos: ${progress.completedLessons.length}/${TOTAL_LESSONS} aulas, ${progress.passedTests.length}/${TOTAL_TESTS} testes e ${progress.solvedCases.length}/8 casos práticos.`;
-
- paper.classList.toggle("hidden",!eligible);
-
- const name=document.getElementById("studentName");
- if(name && name.value!==progress.studentName){
-  name.value=progress.studentName;
- }
-
- setText("certName",progress.studentName||"Nome do formando");
- setText("certDate",`Concluído em ${new Date().toLocaleDateString("pt")}`);
-}
-
-function printCertificate(){
- updateCertificate();
-
- if(progress.completedLessons.length<TOTAL_LESSONS ||
-    progress.passedTests.length<TOTAL_TESTS ||
-    progress.solvedCases.length<8){
-  alert("Conclui as aulas, os testes e os casos práticos antes de imprimir o certificado.");
-  return;
- }
-
- window.print();
-}
-
-function exportProgress(){
- const data=JSON.stringify(progress,null,2);
- const blob=new Blob([data],{type:"application/json"});
- const url=URL.createObjectURL(blob);
- const link=document.createElement("a");
-
- link.href=url;
- link.download="voltmaster-pro-progresso.json";
- document.body.appendChild(link);
- link.click();
- link.remove();
-
- URL.revokeObjectURL(url);
-}
-
-function resetProgress(){
- if(!confirm("Tens a certeza de que queres apagar todo o progresso guardado neste dispositivo? Esta acção não pode ser desfeita.")){
-  return;
- }
-
- progress=JSON.parse(JSON.stringify(DEFAULT_PROGRESS));
-
- try{
-  localStorage.removeItem(STORAGE_KEY);
- }catch(error){
-  console.warn(error);
- }
-
- activeLevel=1;
- activeModule=1;
- currentLessonId=null;
- currentTest=null;
-
- updateDashboard();
- renderCourse();
- showView("dashboard");
-}
-
-function bootVoltMaster(){
- const name=document.getElementById("studentName");
- if(name) name.value=progress.studentName||"";
-
- applySavedTheme();
- updateDashboard();
- renderCourse();
- renderCases();
- renderReview();
- updateCertificate();
-}
-
-document.addEventListener("DOMContentLoaded",bootVoltMaster);
-</script><script>
-/* =====================================================
-   VOLTMASTER PRO — PARTE 7
-   CASOS PRÁTICOS E SIMULADOR DE DIAGNÓSTICO
-   ===================================================== */
-
-const PRACTICAL_CASES = [
-  {
-    id: 1,
-    title: "Bateria descarregada",
-    system: "Sistema de arranque",
-    difficulty: "Iniciante",
-    complaint: "O motor de arranque não gira e as luzes do painel estão fracas.",
-    symptoms: [
-      "Luzes do painel com pouca intensidade",
-      "Motor de arranque não gira",
-      "Possível ruído de cliques"
-    ],
-    question: "Qual deve ser a primeira verificação?",
-    options: [
-      "Substituir imediatamente o motor de arranque",
-      "Medir a tensão da bateria e verificar os terminais",
-      "Trocar as velas de ignição",
-      "Substituir o alternador sem testar"
-    ],
-    answer: 1,
-    explanation: "Começa por verificar a tensão da bateria, o estado dos terminais e as ligações à massa. Uma bateria descarregada ou uma ligação deficiente pode impedir o arranque.",
-    procedure: [
-      "Inspecionar a bateria e os terminais.",
-      "Medir a tensão em repouso com um multímetro.",
-      "Verificar as ligações positivas e a massa.",
-      "Se necessário, testar a bateria sob carga com equipamento adequado.",
-      "Recarregar ou substituir apenas depois de confirmar o diagnóstico."
-    ]
-  },
-  {
-    id: 2,
-    title: "Alternador não carrega",
-    system: "Sistema de carga",
-    difficulty: "Intermédio",
-    complaint: "A luz da bateria permanece acesa com o motor em funcionamento.",
-    symptoms: [
-      "Luz de aviso da bateria acesa",
-      "Bateria perde carga durante a condução",
-      "Possível ruído na correia"
-    ],
-    question: "Que procedimento ajuda a identificar a causa?",
-    options: [
-      "Verificar apenas os pneus",
-      "Desligar a bateria com o motor a trabalhar",
-      "Inspecionar a correia, as ligações e testar o sistema de carga",
-      "Trocar todas as lâmpadas"
-    ],
-    answer: 2,
-    explanation: "É necessário verificar a correia de acionamento, as ligações, os fusíveis e a tensão de carga segundo as especificações do fabricante. Nunca desligues a bateria com o motor a trabalhar para testar o alternador.",
-    procedure: [
-      "Verificar visualmente a correia e a sua tensão, quando aplicável.",
-      "Inspecionar cabos, conectores e fusíveis.",
-      "Medir a tensão da bateria com o motor desligado.",
-      "Medir o sistema de carga com o motor a trabalhar, seguindo o procedimento do fabricante.",
-      "Se necessário, testar o alternador e o circuito de controlo."
-    ]
-  },
-  {
-    id: 3,
-    title: "Fusível queimado",
-    system: "Proteção elétrica",
-    difficulty: "Iniciante",
-    complaint: "O rádio deixou de funcionar subitamente.",
-    symptoms: [
-      "Rádio sem alimentação",
-      "Outros componentes podem continuar a funcionar",
-      "Não há sinais de funcionamento do aparelho"
-    ],
-    question: "O que deves fazer antes de substituir o fusível?",
-    options: [
-      "Instalar um fusível de amperagem superior",
-      "Ligar diretamente os fios para contornar a proteção",
-      "Verificar o circuito e procurar possíveis curtos-circuitos",
-      "Retirar todos os fusíveis do veículo"
-    ],
-    answer: 2,
-    explanation: "Um fusível queimado pode indicar sobrecorrente ou curto-circuito. Identifica a causa e utiliza apenas um fusível com a especificação correta.",
-    procedure: [
-      "Consultar o esquema elétrico e a localização do fusível.",
-      "Desligar a alimentação quando o procedimento o exigir.",
-      "Verificar o fusível com um multímetro ou testador apropriado.",
-      "Inspecionar cabos e conectores à procura de danos.",
-      "Substituir por um fusível da mesma especificação e testar o circuito."
-    ]
-  },
-  {
-    id: 4,
-    title: "Faróis fracos",
-    system: "Iluminação",
-    difficulty: "Intermédio",
-    complaint: "Os faróis iluminam pouco, mesmo com lâmpadas aparentemente boas.",
-    symptoms: [
-      "Luz fraca",
-      "Diferença de intensidade entre os lados",
-      "Possível oxidação dos conectores"
-    ],
-    question: "Qual é uma verificação importante?",
-    options: [
-      "Medir quedas de tensão no circuito e verificar as massas",
-      "Substituir a bateria sem testar",
-      "Aumentar o valor dos fusíveis",
-      "Retirar os relés permanentemente"
-    ],
-    answer: 0,
-    explanation: "Conectores oxidados, massas deficientes, cabos danificados ou problemas de alimentação podem reduzir a intensidade luminosa. Também verifica o estado das lâmpadas e o alinhamento dos faróis.",
-    procedure: [
-      "Confirmar o tipo e o estado das lâmpadas.",
-      "Inspecionar conectores, fusíveis e relés.",
-      "Verificar a massa e a alimentação do circuito.",
-      "Realizar testes de queda de tensão com o circuito ligado.",
-      "Corrigir a avaria e confirmar a iluminação."
-    ]
-  },
-  {
-    id: 5,
-    title: "Motor não pega",
-    system: "Arranque e ignição",
-    difficulty: "Avançado",
-    complaint: "O motor gira durante o arranque, mas não entra em funcionamento.",
-    symptoms: [
-      "Motor de arranque gira",
-      "Motor não entra em funcionamento",
-      "Pode não existir faísca ou alimentação de combustível"
-    ],
-    question: "Qual é a abordagem de diagnóstico mais correta?",
-    options: [
-      "Trocar imediatamente a centralina",
-      "Verificar os sistemas de alimentação, ignição e sinais dos sensores",
-      "Substituir o motor completo",
-      "Aumentar a amperagem dos fusíveis"
-    ],
-    answer: 1,
-    explanation: "O diagnóstico deve ser sistemático. Conforme o tipo de motor, verifica a alimentação de combustível, a ignição, a compressão, os sinais dos sensores e os códigos de avaria.",
-    procedure: [
-      "Confirmar a carga da bateria e a velocidade de arranque.",
-      "Ler os códigos de avaria com um equipamento de diagnóstico compatível.",
-      "Verificar os sinais necessários para a gestão do motor.",
-      "Testar a alimentação de combustível segundo o procedimento aplicável.",
-      "Verificar ignição, sincronização e compressão conforme os resultados."
-    ]
-  },
-  {
-    id: 6,
-    title: "Consumo de bateria com o carro parado",
-    system: "Consumo parasita",
-    difficulty: "Avançado",
-    complaint: "A bateria descarrega depois de o veículo ficar parado durante algumas horas ou dias.",
-    symptoms: [
-      "Arranque difícil após estacionamento",
-      "Bateria perde carga durante a noite",
-      "Pode existir um acessório ligado indevidamente"
-    ],
-    question: "Como se deve começar o diagnóstico?",
-    options: [
-      "Trocar a bateria sem testar",
-      "Retirar aleatoriamente todos os fusíveis",
-      "Confirmar o estado da bateria e medir o consumo em repouso segundo o procedimento do fabricante",
-      "Desligar qualquer cabo sem identificar a sua função"
-    ],
-    answer: 2,
-    explanation: "Primeiro confirma que a bateria está em boas condições. Depois mede o consumo em repouso respeitando o tempo de adormecimento dos módulos e as precauções de ligação do instrumento.",
-    procedure: [
-      "Testar a bateria e confirmar que está devidamente carregada.",
-      "Verificar luzes, acessórios e equipamentos instalados posteriormente.",
-      "Preparar o veículo para entrar no modo de repouso.",
-      "Medir o consumo com o método e o equipamento adequados.",
-      "Isolar o circuito responsável e confirmar a reparação."
-    ]
-  }
-];
-
-/* Estado do simulador */
-let practicalCaseIndex = 0;
-let practicalCaseScore = 0;
-let practicalCaseAnswered = false;
-
-/* Apresenta um caso prático */
-function renderPracticalCase() {
-  const container = document.getElementById("practicalCaseContainer");
-
-  if (!container) {
-    console.warn(
-      "Cria no HTML um elemento com id='practicalCaseContainer'."
-    );
-    return;
-  }
-
-  const currentCase = PRACTICAL_CASES[practicalCaseIndex];
-
-  if (!currentCase) {
-    container.innerHTML = `
-      <div class="case-result">
-        <h2>Simulação concluída!</h2>
-        <p>Resultado: ${practicalCaseScore} de ${PRACTICAL_CASES.length}</p>
-        <button onclick="restartPracticalCases()">
-          Recomeçar simulação
-        </button>
-      </div>
-    `;
-    return;
-  }
-
-  practicalCaseAnswered = false;
-
-  container.innerHTML = `
-    <section class="practical-case">
-      <div class="case-header">
-        <span>CASO ${practicalCaseIndex + 1} DE ${PRACTICAL_CASES.length}</span>
-        <span>${escapeCaseText(currentCase.difficulty)}</span>
-      </div>
-
-      <h2>${escapeCaseText(currentCase.title)}</h2>
-      <p><strong>Sistema:</strong> ${escapeCaseText(currentCase.system)}</p>
-
-      <div class="case-complaint">
-        <strong>Relato do cliente</strong>
-        <p>${escapeCaseText(currentCase.complaint)}</p>
-      </div>
-
-      <h3>Sintomas observados</h3>
-      <ul>
-        ${currentCase.symptoms.map(item =>
-          `<li>${escapeCaseText(item)}</li>`
-        ).join("")}
-      </ul>
-
-      <h3>${escapeCaseText(currentCase.question)}</h3>
-
-      <div class="case-options">
-        ${currentCase.options.map((option, index) => `
-          <button
-            type="button"
-            class="case-option"
-            data-case-option="${index}"
-            onclick="answerPracticalCase(${index})">
-            ${String.fromCharCode(65 + index)}.
-            ${escapeCaseText(option)}
-          </button>
-        `).join("")}
-      </div>
-
-      <div id="practicalCaseFeedback" aria-live="polite"></div>
-
-      <button
-        type="button"
-        id="nextPracticalCase"
-        onclick="nextPracticalCase()"
-        hidden>
-        Próximo caso
-      </button>
-    </section>
-  `;
-}
-
-/* Protege texto apresentado no HTML */
-function escapeCaseText(value) {
-  return String(value).replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[character]);
-}
-
-/* Corrige a resposta escolhida */
-function answerPracticalCase(selectedIndex) {
-  if (practicalCaseAnswered) return;
-
-  const currentCase = PRACTICAL_CASES[practicalCaseIndex];
-  if (!currentCase) return;
-
-  practicalCaseAnswered = true;
-
-  const correct = selectedIndex === currentCase.answer;
-
-  if (correct) {
-    practicalCaseScore++;
-  }
-
-  document.querySelectorAll("[data-case-option]").forEach(button => {
-    button.disabled = true;
-
-    const optionIndex = Number(button.dataset.caseOption);
-
-    if (optionIndex === currentCase.answer) {
-      button.classList.add("correct");
-    } else if (optionIndex === selectedIndex) {
-      button.classList.add("incorrect");
-    }
+   list.innerHTML += `
+    <div class="lessonrow ${isDone ? 'done':''} ${isLockedByInvite ? 'locked':''}">
+     <div class="num">${tIdx+1}</div>
+     <div class="detail"><b>${topic}</b><small>${isDone ? 'Concluído' : (isLockedByInvite ? 'Bloqueado (requer convite)' : 'Pendente')}</small></div>
+     <button class="small ${isDone ? 'secondary':'primary'}" ${isLockedByInvite ? 'disabled':''} onclick="openLesson('${lessonId}', '${topic}')">${isDone ? 'Rever' : 'Estudar'}</button>
+    </div>`;
   });
-
-  const feedback = document.getElementById("practicalCaseFeedback");
-
-  if (feedback) {
-    feedback.innerHTML = `
-      <div class="${correct ? "feedback-correct" : "feedback-incorrect"}">
-        <h4>${correct ? "Resposta correta!" : "Resposta incorreta."}</h4>
-        <p>${escapeCaseText(currentCase.explanation)}</p>
-
-        <details>
-          <summary>Ver procedimento profissional</summary>
-          <ol>
-            ${currentCase.procedure.map(step =>
-              `<li>${escapeCaseText(step)}</li>`
-            ).join("")}
-          </ol>
-        </details>
-      </div>
-    `;
-  }
-
-  const nextButton = document.getElementById("nextPracticalCase");
-
-  if (nextButton) {
-    nextButton.hidden = false;
-    nextButton.textContent =
-      practicalCaseIndex === PRACTICAL_CASES.length - 1
-        ? "Ver resultado"
-        : "Próximo caso";
-  }
+ });
 }
 
-/* Avança para o próximo caso */
-function nextPracticalCase() {
-  if (!practicalCaseAnswered) return;
-
-  practicalCaseIndex++;
-  renderPracticalCase();
+function openLesson(id, title) {
+ showView('lesson');
+ document.getElementById("lessonContent").innerHTML = `
+  <h2>${title}</h2>
+  <p>Conteúdo técnico e prático correspondente a esta lição na área de electricidade automóvel.</p>
+  <div class="callout"><b>Nota prática:</b> Consulta sempre os manuais e diagramas específicos recomendados pelo fabricante antes de efetuar intervenções reais.</div>
+  <div class="row" style="margin-top:20px">
+   <button class="primary" onclick="completeLesson('${id}')">✓ Marcar como concluída</button>
+   <button class="secondary" onclick="showView('course')">Voltar ao curso</button>
+  </div>`;
 }
 
-/* Reinicia a simulação */
-function restartPracticalCases() {
-  practicalCaseIndex = 0;
-  practicalCaseScore = 0;
-  practicalCaseAnswered = false;
-  renderPracticalCase();
+function completeLesson(id) {
+ if(!userProgress.completedLessons.includes(id)) {
+  userProgress.completedLessons.push(id);
+  userProgress.bestScore = Math.min(100, userProgress.bestScore + 5);
+  saveUserData();
+ }
+ updateStats();
+ showView('course');
+ renderCourse();
 }
 
-/* Adiciona o módulo de casos práticos ao menu, se existir */
-function openPracticalCases() {
-  const container = document.getElementById("practicalCaseContainer");
-
-  if (container) {
-    renderPracticalCase();
-    container.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  } else {
-    alert(
-      "O espaço para os casos práticos será ativado na Parte 8."
-    );
-  }
-}
-
-/* Resumo do desempenho */
-function getPracticalCaseSummary() {
-  const total = PRACTICAL_CASES.length;
-  const percentage = total
-    ? Math.round((practicalCaseScore / total) * 100)
-    : 0;
-
-  return {
-    total,
-    correct: practicalCaseScore,
-    percentage,
-    completed: practicalCaseIndex >= total
-  };
-}
-</script><!-- =====================================================
-     VOLTMASTER PRO — PARTE 8 DE 8
-     INTERFACE FINAL E INICIALIZAÇÃO
-     ===================================================== -->
-
-<style>
-/* Casos práticos */
-#practicalCaseContainer {
-  width: min(100% - 24px, 900px);
-  margin: 24px auto;
-  color: var(--text-color, inherit);
-}
-
-.practical-case,
-.case-result {
-  padding: 22px;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 16px;
-  background: var(--card-background, #171a21);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
-}
-
-.case-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 16px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  opacity: .8;
-}
-
-.practical-case h2,
-.case-result h2 {
-  margin: 8px 0 16px;
-}
-
-.case-complaint {
-  padding: 14px;
-  border-left: 4px solid #3687f5;
-  border-radius: 8px;
-  background: rgba(54, 135, 245, .10);
-}
-
-.case-options {
-  display: grid;
-  gap: 10px;
-  margin: 18px 0;
-}
-
-.case-option,
-#nextPracticalCase,
-.case-result button {
-  padding: 13px 16px;
-  border: 1px solid var(--border-color, #555);
-  border-radius: 10px;
-  background: var(--button-background, #252b36);
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: transform .15s ease, opacity .15s ease;
-}
-
-.case-option:hover:not(:disabled),
-#nextPracticalCase:hover,
-.case-result button:hover {
-  transform: translateY(-1px);
-}
-
-.case-option:disabled {
-  cursor: default;
-  opacity: .85;
-}
-
-.case-option.correct {
-  border-color: #28a46b;
-  background: rgba(40, 164, 107, .16);
-}
-
-.case-option.incorrect {
-  border-color: #e05252;
-  background: rgba(224, 82, 82, .16);
-}
-
-.feedback-correct,
-.feedback-incorrect {
-  margin: 16px 0;
-  padding: 16px;
-  border-radius: 10px;
-}
-
-.feedback-correct {
-  background: rgba(40, 164, 107, .12);
-  border: 1px solid #28a46b;
-}
-
-.feedback-incorrect {
-  background: rgba(224, 82, 82, .10);
-  border: 1px solid #e05252;
-}
-
-#practicalCaseFeedback details {
-  margin-top: 14px;
-}
-
-#practicalCaseFeedback summary {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#practicalCaseFeedback li {
-  margin: 9px 0;
-  line-height: 1.5;
-}
-
-#nextPracticalCase {
-  display: inline-block;
-  margin-top: 10px;
-  background: #1769e0;
-  color: white;
-  border-color: transparent;
-  text-align: center;
-}
-
-#nextPracticalCase[hidden] {
-  display: none;
-}
-
-.case-result {
-  text-align: center;
-}
-
-.case-result .case-score {
-  font-size: 34px;
-  font-weight: bold;
-  margin: 18px 0;
-}
-
-@media (max-width: 600px) {
-  .practical-case,
-  .case-result {
-    padding: 16px;
-  }
-
-  .case-option {
-    width: 100%;
-    text-align: left;
-  }
-}
-</style>
-
-<!-- Área dos casos práticos -->
-<section id="voltmasterPracticalSection">
-  <div id="practicalCaseContainer">
-    <div class="case-result">
-      <h2>Laboratório de diagnóstico</h2>
-      <p>
-        Resolve casos inspirados em avarias reais de electricidade
-        automóvel e aprende a justificar cada diagnóstico.
-      </p>
-      <button type="button" onclick="openPracticalCases()">
-        Iniciar casos práticos
-      </button>
-    </div>
-  </div>
-</section>
-
-<script>
-/* =====================================================
-   INICIALIZAÇÃO E LIGAÇÃO DA INTERFACE
-   ===================================================== */
-
-(function () {
-  "use strict";
-
-  function connectPracticalNavigation() {
-    const possibleButtons = [
-      "[data-page='practical']",
-      "[data-view='practical']",
-      "#openPracticalCases",
-      "#practicalCasesButton"
-    ];
-
-    possibleButtons.forEach(selector => {
-      document.querySelectorAll(selector).forEach(button => {
-        button.addEventListener("click", function (event) {
-          event.preventDefault();
-          openPracticalCases();
-        });
-      });
-    });
-  }
-
-  function addPracticalMenuLink() {
-    const nav =
-      document.querySelector("#sidebar nav") ||
-      document.querySelector(".sidebar nav") ||
-      document.querySelector("#mainNav") ||
-      document.querySelector("nav");
-
-    if (!nav || document.getElementById("voltmasterPracticalLink")) {
-      return;
-    }
-
-    const link = document.createElement("button");
-    link.id = "voltmasterPracticalLink";
-    link.type = "button";
-    link.textContent = "🔧 Casos práticos";
-    link.style.cssText = [
-      "display:block",
-      "width:100%",
-      "padding:12px",
-      "margin-top:6px",
-      "border:0",
-      "border-radius:8px",
-      "text-align:left",
-      "font:inherit",
-      "cursor:pointer",
-      "background:transparent",
-      "color:inherit"
-    ].join(";");
-
-    link.addEventListener("click", openPracticalCases);
-    nav.appendChild(link);
-  }
-
-  function startVoltMaster() {
-    connectPracticalNavigation();
-    addPracticalMenuLink();
-
-    /*
-      Não inicia o teste automaticamente.
-      O aluno escolhe quando começar.
-    */
-
-    console.log("VoltMaster Pro: interface prática carregada.");
-
-    console.log(
-      "Casos práticos disponíveis:",
-      Array.isArray(PRACTICAL_CASES)
-        ? PRACTICAL_CASES.length
-        : 0
-    );
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startVoltMaster);
-  } else {
-    startVoltMaster();
-  }
-})();
+window.onload = function() {
+ checkActiveSession();
+};
 </script>
+</body>
 </html>
